@@ -1,0 +1,1036 @@
+[
+ {
+  "kind": "P1",
+  "name": "oracle_offline",
+  "artifact_sha256": "cba3822666ccedac7fb86f011658703d6106f2e90ed5e9f86a610f886bc7a46c",
+  "artifact_preview": "{\n  \"k\": 0.5862921981480419,\n  \"rho_c\": 1638904.1729338337,\n  \"predictions\": {\n    \"P1\": 88.94751990792736,\n    \"P2\": 34.993678043960905,\n    \"P3\": 88.747595530",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.10s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.74,
+  "note": "reference solution, network removed"
+ },
+ {
+  "kind": "NOOP",
+  "name": "no_answer_file",
+  "artifact_sha256": null,
+  "artifact_preview": null,
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_answer_is_strict_json_object - answer_format.Con...",
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "========================= 5 failed, 2 skipped in 0.10s =========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.71,
+  "note": "agent did nothing"
+ },
+ {
+  "kind": "POS",
+  "name": "B1_panel_series_5_terms",
+  "artifact_sha256": "c02c2fbdfd5d61fb4e72b10c1d26dd64c0194618c4c401d1f1d81ee6cab86adc",
+  "artifact_preview": "{\n \"k\": 0.58629219682836,\n \"rho_c\": 1638904.175727434,\n \"predictions\": {\n  \"P1\": 88.94751988485984,\n  \"P2\": 34.99367805970088,\n  \"P3\": 88.7475954559429,\n  \"P4\":",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.07s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.57,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N10_panel_fd_implicit_euler_51x1s",
+  "artifact_sha256": "72bdf2ca454f6d512f85624ac2bcac02071e88fc24e0d7e82ea743a2f3918533",
+  "artifact_preview": "{\n \"k\": 0.58629219682836,\n \"rho_c\": 1638904.175727434,\n \"predictions\": {\n  \"P1\": 88.91862685035451,\n  \"P2\": 34.900013905589695,\n  \"P3\": 88.6825775565342,\n  \"P4\"",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=================================== FAILURES ===================================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "========================= 1 failed, 6 passed in 0.08s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.62,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N11_panel_fd_cn_51x1s",
+  "artifact_sha256": "f73538ffc0b7def5a22cb1255ac9e2eac4b3d6ea513bd81fde0d22d724bb140c",
+  "artifact_preview": "{\n \"k\": 0.58629219682836,\n \"rho_c\": 1638904.175727434,\n \"predictions\": {\n  \"P1\": 88.94634403470215,\n  \"P2\": 34.938379842716884,\n  \"P3\": 88.71248801030985,\n  \"P4",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=================================== FAILURES ===================================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "========================= 1 failed, 6 passed in 0.08s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.58,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N12_panel_fd_cn_101x0.25s",
+  "artifact_sha256": "b1c9918589db6e7c2c6d5a52bc4296eb415123aaf490035ae4e5897c3b629714",
+  "artifact_preview": "{\n \"k\": 0.58629219682836,\n \"rho_c\": 1638904.175727434,\n \"predictions\": {\n  \"P1\": 88.9472247568525,\n  \"P2\": 34.9798301478604,\n  \"P3\": 88.73881470719178,\n  \"P4\": ",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=================================== FAILURES ===================================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "========================= 1 failed, 6 passed in 0.08s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.6,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N13_panel_mol_bdf_default_tol",
+  "artifact_sha256": "4114a3991f87b55a3ade4d31a04e88650f33010ab0830bdff22dfc9d7f649a8c",
+  "artifact_preview": "{\n \"k\": 0.58629219682836,\n \"rho_c\": 1638904.175727434,\n \"predictions\": {\n  \"P1\": 88.94639686930792,\n  \"P2\": 35.01640059930291,\n  \"P3\": 88.79990696523745,\n  \"P4\"",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=================================== FAILURES ===================================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "========================= 1 failed, 6 passed in 0.09s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.63,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N1_power_V_times_I",
+  "artifact_sha256": "0218a94d046c6c7aef24e7f415d0e7afa0f0715034b5aead417ed54776a46055",
+  "artifact_preview": "{\n \"k\": 0.6777602142568572,\n \"rho_c\": 1894603.2698242904,\n \"predictions\": {\n  \"P1\": 80.39758869248942,\n  \"P2\": 35.633576710420854,\n  \"P3\": 79.9253983428286,\n  \"",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.08s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.63,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N2_power_V2_over_R",
+  "artifact_sha256": "c605c5d7cd0122ba121192258c1e41108a7843dc757505dbf53f2c6e2de0f5c4",
+  "artifact_preview": "{\n \"k\": 0.7750959980873695,\n \"rho_c\": 2166708.3194350326,\n \"predictions\": {\n  \"P1\": 73.42261346955824,\n  \"P2\": 36.06577063215944,\n  \"P3\": 72.73029354182981,\n  \"",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.08s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.63,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N3_all_power_into_specimen",
+  "artifact_sha256": "7a8939308fe57cbaf4a944800174c9fbe22ec8454a7d5c84fe260e8833b583b0",
+  "artifact_preview": "{\n \"k\": 1.4257610185742944,\n \"rho_c\": 3985530.934185173,\n \"predictions\": {\n  \"P1\": 50.63711608533282,\n  \"P2\": 35.97463674181202,\n  \"P3\": 49.27039449778687,\n  \"P",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.07s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.63,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N4_symmetric_half_split",
+  "artifact_sha256": "08289da127096e0ad6972b75a3d1fc4f0db764b6e5b4670d5a5e994e723e0e8e",
+  "artifact_preview": "{\n \"k\": 0.7128805092871472,\n \"rho_c\": 1992765.4670925864,\n \"predictions\": {\n  \"P1\": 77.67180898841659,\n  \"P2\": 35.8152734196323,\n  \"P3\": 77.1133190508364,\n  \"P4",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.09s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.58,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N5_radiograph_depths_as_is",
+  "artifact_sha256": "38883d4ee69f39464060d325a9364f1c02912a6e1929ca89958abaa1a0e26e99",
+  "artifact_preview": "{\n \"k\": 0.6662411348006656,\n \"rho_c\": 1442235.67122608,\n \"predictions\": {\n  \"P1\": 91.79076962312286,\n  \"P2\": 33.785041013825136,\n  \"P3\": 95.1615597444015,\n  \"P4",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.09s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.61,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N6_magnification_inverted",
+  "artifact_sha256": "20c77d2178bb68c73ef714967b5512575b52a602747b5e4f31875151f62ee950",
+  "artifact_preview": "{\n \"k\": 0.7570921966958579,\n \"rho_c\": 1269167.393277556,\n \"predictions\": {\n  \"P1\": 95.09069269937534,\n  \"P2\": 32.42473008912647,\n  \"P3\": 102.44766405572085,\n  \"",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.10s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.6,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N7_logger_instantaneous",
+  "artifact_sha256": "513eec049f3518547e893da9f50d33d83e04ed5a908a24e0a28fbf9e51d3cbb2",
+  "artifact_preview": "{\n \"k\": 0.5684609435650014,\n \"rho_c\": 1644238.2857020546,\n \"predictions\": {\n  \"P1\": 89.47762766968346,\n  \"P2\": 35.07280097401794,\n  \"P3\": 88.85546341632988,\n  \"",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.09s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.69,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N8_logger_window_starts_at_stamp",
+  "artifact_sha256": "22be9c9f2c0d2a5c7ab91d57d7425496d16957c3cd144e743b344ac126a3b341",
+  "artifact_preview": "{\n \"k\": 0.5515493561408188,\n \"rho_c\": 1649705.733309002,\n \"predictions\": {\n  \"P1\": 90.006273300113,\n  \"P2\": 35.151707119697946,\n  \"P3\": 88.9650958504956,\n  \"P4\"",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.10s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.72,
+  "note": ""
+ },
+ {
+  "kind": "NEG",
+  "name": "N9_compound_default",
+  "artifact_sha256": "971c344a1fdc754ffa4a845921a8350a1b10902f09efcecf9f34f0e347e5b92f",
+  "artifact_preview": "{\n \"k\": 1.6853792161376098,\n \"rho_c\": 3775112.739861468,\n \"predictions\": {\n  \"P1\": 50.52806557158033,\n  \"P2\": 36.05867880860664,\n  \"P3\": 50.277009795321476,\n  \"",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.11s ==========================",
+   "reward: 0"
+  ],
+  "wall_s": 0.69,
+  "note": ""
+ },
+ {
+  "kind": "POS",
+  "name": "P1_reference",
+  "artifact_sha256": "ab85b97955578fefb4bbd752baa999916b05d31830feb28bd14d06f1bdbb8db5",
+  "artifact_preview": "{\n \"k\": 0.58629219682836,\n \"rho_c\": 1638904.175727434,\n \"predictions\": {\n  \"P1\": 88.94751988485984,\n  \"P2\": 34.99367805970088,\n  \"P3\": 88.74759545594296,\n  \"P4\"",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.07s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.6,
+  "note": ""
+ },
+ {
+  "kind": "POS",
+  "name": "P2_independent_fd",
+  "artifact_sha256": "1cba144b1ca8aa7ff22a0124b43761ad171345cbde9af5eec658dc0e87806147",
+  "artifact_preview": "{\n \"k\": 0.5859804936534011,\n \"rho_c\": 1638090.564511809,\n \"predictions\": {\n  \"P1\": 88.9795064314925,\n  \"P2\": 34.99071647742877,\n  \"P3\": 88.77979706390363,\n  \"P4",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.07s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.7,
+  "note": ""
+ },
+ {
+  "kind": "POS",
+  "name": "P2b_panel_cn_401_nodes_0.02s",
+  "artifact_sha256": "9000807976fdfb293d93cef1d570308db5715aab6f1443c16cf2c27aa504abde",
+  "artifact_preview": "{\n \"k\": 0.58629219682836,\n \"rho_c\": 1638904.175727434,\n \"predictions\": {\n  \"P1\": 88.94750141752561,\n  \"P2\": 34.994788524445326,\n  \"P3\": 88.7498066073575,\n  \"P4\"",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.08s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.64,
+  "note": ""
+ },
+ {
+  "kind": "POS",
+  "name": "P3_t0_from_pre_heating_mean",
+  "artifact_sha256": "4f6f236da9f128401418c2fac85d520cf49916ca88705380d82b2aa643cbb6ec",
+  "artifact_preview": "{\n \"k\": 0.5863468958188454,\n \"rho_c\": 1639288.242735007,\n \"predictions\": {\n  \"P1\": 88.93578226033382,\n  \"P2\": 34.99510252046841,\n  \"P3\": 88.73368043348813,\n  \"P",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.09s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.76,
+  "note": ""
+ },
+ {
+  "kind": "POS",
+  "name": "P3_window_midpoint_approx",
+  "artifact_sha256": "88d3f7219022464f90baacf2ecf2c86105787cdd26f788e759ac0b804333f52a",
+  "artifact_preview": "{\n \"k\": 0.586308539886728,\n \"rho_c\": 1639387.2242231884,\n \"predictions\": {\n  \"P1\": 88.93466086362642,\n  \"P2\": 34.99563358059286,\n  \"P3\": 88.73091452755264,\n  \"P",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.08s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.67,
+  "note": ""
+ },
+ {
+  "kind": "FMT",
+  "name": "compact",
+  "artifact_sha256": "dd0559829d25ceea5fb3b966833631e48077dca471b74527ad67b9b4914e98fd",
+  "artifact_preview": "{\"k\":0.5862921981480419,\"rho_c\":1638904.1729338337,\"predictions\":{\"P1\":88.94751990792736,\"P2\":34.993678043960905,\"P3\":88.74759553034468,\"P4\":40.60420657684173,\"",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.08s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.68,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "indent4_sorted",
+  "artifact_sha256": "6fac9f0ddcf59382aa73f152189f5d9759d7b5907b54fde0831877996df3b5e0",
+  "artifact_preview": "{\n    \"k\": 0.5862921981480419,\n    \"predictions\": {\n        \"P1\": 88.94751990792736,\n        \"P2\": 34.993678043960905,\n        \"P3\": 88.74759553034468,\n        ",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.08s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.63,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "predictions_first",
+  "artifact_sha256": "722ed2b509bd58eb4c02e2dbb60204a5636f6142f8aa0512ef8c55fe14331630",
+  "artifact_preview": "{\"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4\": 40.60420657684173, \"P5\": 49.783264923104355, \"P6\": 65.3545414",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.09s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.68,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "prediction_keys_reversed",
+  "artifact_sha256": "8f82aef97e556aef550549cbcc03840e024ec8195d2439d04eba8c61d8bd514f",
+  "artifact_preview": "{\"k\": 0.5862921981480419, \"rho_c\": 1638904.1729338337, \"predictions\": {\"P6\": 65.35454146655275, \"P5\": 49.783264923104355, \"P4\": 40.60420657684173, \"P3\": 88.7475",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.09s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.7,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "exponent_notation",
+  "artifact_sha256": "d9f1f0d693d1792eec5c8fe4b3ec809c710584a792d83a6429cbf456c44a92f1",
+  "artifact_preview": "{\"k\": 5.862921981e-01, \"rho_c\": 1.638904173E+06, \"predictions\": {\"P1\": 8.894751991e+01, \"P2\": 3.499367804e+01, \"P3\": 8.874759553e+01, \"P4\": 4.060420658e+01, \"P5",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.08s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.66,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "rho_c_integer",
+  "artifact_sha256": "0c2924e15d4b2e233866d55e0c6faf5ed65153165774e3784a13d050135ee3fe",
+  "artifact_preview": "{\"k\": 0.5862921981480419, \"rho_c\": 1638904, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4\": 40.60420657684173,",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.09s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.67,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "rounded_4_decimals",
+  "artifact_sha256": "9ed3b3e37707e0ce98aa3f7295a4dacce8913aec3e79909d75ae0fe6c8291e25",
+  "artifact_preview": "{\"k\": 0.586292, \"rho_c\": 1638904, \"predictions\": {\"P1\": 88.9475, \"P2\": 34.9937, \"P3\": 88.7476, \"P4\": 40.6042, \"P5\": 49.7833, \"P6\": 65.3545}}",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.09s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.67,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "crlf",
+  "artifact_sha256": "11b83670379bc08aa82917c5bd69b5f2b24523a9bb4ed16b06ea891f9a983491",
+  "artifact_preview": "{\r\n  \"k\": 0.5862921981480419,\r\n  \"rho_c\": 1638904.1729338337,\r\n  \"predictions\": {\r\n    \"P1\": 88.94751990792736,\r\n    \"P2\": 34.993678043960905,\r\n    \"P3\": 88.747",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.07s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.59,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "no_trailing_newline",
+  "artifact_sha256": "3bdff19059c2bf6d25ba00d3037ca38b31684750906afe2c0b3fb473f8cb86c7",
+  "artifact_preview": "{\"k\": 0.5862921981480419, \"rho_c\": 1638904.1729338337, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4\": 40.6042",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.07s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.54,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "utf8_bom",
+  "artifact_sha256": "088cd8980fa511ed6d4c0e671d23b4ce380933b94955a20d95c71586831c50f1",
+  "artifact_preview": "\ufeff{\"k\": 0.5862921981480419, \"rho_c\": 1638904.1729338337, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4\": 40.6",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.07s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.55,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "unicode_escaped_keys",
+  "artifact_sha256": "98632ebdf650cee5d6a453946a5e945b7bfb90d64a85ba9e29f9b111d9bf5b35",
+  "artifact_preview": "{\"\\u006b\": 0.5862921981480419, \"rho\\u005fc\": 1638904.1729338337, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.08s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.61,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "FMT",
+  "name": "whitespace_padding",
+  "artifact_sha256": "039fe44988cbea18d578ac99b9a8afd10e1739e901b6a12a9e46d459292dfabb",
+  "artifact_preview": "\n\n   {\n \"k\": 0.5862921981480419,\n \"rho_c\": 1638904.1729338337,\n \"predictions\": {\n  \"P1\": 88.94751990792736,\n  \"P2\": 34.993678043960905,\n  \"P3\": 88.7475955303446",
+  "test_sh_exit": 0,
+  "reward": "1",
+  "expected": "1",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance",
+   "============================= test session starts ==============================",
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "============================== 7 passed in 0.10s ===============================",
+   "reward: 1"
+  ],
+  "wall_s": 0.67,
+  "note": "valid serialisation of the oracle answer"
+ },
+ {
+  "kind": "PROBE",
+  "name": "symlink_to_lock",
+  "artifact_sha256": "8bcf72a97d49c6432c5954ce95338aecc135ccca3ffe71fb1d388199dabb5ebe",
+  "artifact_preview": "ln -sf /tests/lock.json /app/answer.json;",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "========================= 5 failed, 2 skipped in 0.10s =========================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.64,
+  "note": "answer path is a symlink to verifier data; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "symlink_to_passwd",
+  "artifact_sha256": "ddd13cc35d75ba40046ac98094c06ac4d009c518b63965120ec9fb843187c807",
+  "artifact_preview": "ln -sf /etc/passwd /app/answer.json;",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "========================= 5 failed, 2 skipped in 0.10s =========================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.66,
+  "note": "symlink to a system file; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "fifo_answer",
+  "artifact_sha256": "f9750b72b1a98a48d75a45d5a41dacc69557830ecc6c152143cedee017c6bc37",
+  "artifact_preview": "mkfifo /app/answer.json;",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "========================= 5 failed, 2 skipped in 0.11s =========================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.59,
+  "note": "FIFO would block a naive open(); no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "directory_answer",
+  "artifact_sha256": "3efb886009021e8f02b8d36cf4d1d9829139c1d0fc555af07af5d8e4c75c0823",
+  "artifact_preview": "mkdir -p /app/answer.json;",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "========================= 5 failed, 2 skipped in 0.10s =========================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.66,
+  "note": "directory at the answer path; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "dev_zero_symlink",
+  "artifact_sha256": "f2f1a56e3701f013ae444a193569198cd1e46a1414bf183fd52a601066a4aaaa",
+  "artifact_preview": "ln -sf /dev/zero /app/answer.json;",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "========================= 5 failed, 2 skipped in 0.09s =========================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.63,
+  "note": "endless device; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "oversized",
+  "artifact_sha256": "060d1ed37b7e87ee80fc49a85c8d89a7ba88458e33f7b4f56327a4d586b993e4",
+  "artifact_preview": "                                                                                                                                                                ",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "========================= 5 failed, 2 skipped in 0.12s =========================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.72,
+  "note": "valid JSON padded past 64 KiB; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "code_injection_strings",
+  "artifact_sha256": "0e55c894ca0730a7daaaf9f2c1729c70259433dc9fcd1a7f9cf78e9f92fccab1",
+  "artifact_preview": "{\"k\": \"__import__('os').system('touch /tmp/pwned /logs/verifier/pwned')\", \"rho_c\": \"__import__('os').system('touch /tmp/pwned /logs/verifier/pwned')\", \"predicti",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 2 failed, 3 passed, 2 skipped in 0.10s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.62,
+  "note": "strings that would execute if eval'd; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "nan_infinity",
+  "artifact_sha256": "827de4ace7db2e718d4c9e2b6c11a951c223b9750a7aee0bfad48a6ad258e29d",
+  "artifact_preview": "{\"k\": NaN, \"rho_c\": Infinity, \"predictions\": {\"P1\": -Infinity, \"P2\": -Infinity, \"P3\": -Infinity, \"P4\": -Infinity, \"P5\": -Infinity, \"P6\": -Infinity}}",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 4 failed, 1 passed, 2 skipped in 0.14s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.63,
+  "note": "non-finite constants; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "overflow_exponent",
+  "artifact_sha256": "e58ae3ec52908a06c2171427d20f2ef6b7500713ffb45199e9e119970fa50850",
+  "artifact_preview": "{\"k\": 1e999, \"rho_c\": 1e999, \"predictions\": {\"P1\": 1e999, \"P2\": 1e999, \"P3\": 1e999, \"P4\": 1e999, \"P5\": 1e999, \"P6\": 1e999}}",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 2 failed, 3 passed, 2 skipped in 0.08s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.6,
+  "note": "1e999 parses to inf; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "duplicate_keys",
+  "artifact_sha256": "e264414912fcea4eb0cbeb2aad7c8a9d899364bbfa81b7d7b9a52b8c0e8dc689",
+  "artifact_preview": "{\"k\": 0.5, \"k\": 0.5862921981480419, \"rho_c\": 1638904.1729338337, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 4 failed, 1 passed, 2 skipped in 0.11s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.65,
+  "note": "duplicate key shadowing; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "booleans",
+  "artifact_sha256": "a89c4124e1c2ce4127a7cb872f7a1d515ba763a4fee98443578e3956cb371d60",
+  "artifact_preview": "{\"k\": true, \"rho_c\": true, \"predictions\": {\"P1\": true, \"P2\": true, \"P3\": true, \"P4\": true, \"P5\": true, \"P6\": true}}",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 2 failed, 3 passed, 2 skipped in 0.08s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.57,
+  "note": "bools are not numbers; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "nesting_bomb",
+  "artifact_sha256": "31851d9adc33c98514a91d64e61ee176ed51d1663ba05f5c31b1043c6f2e2cd4",
+  "artifact_preview": "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - answer_format.Contrac...",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - answe...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 4 failed, 1 passed, 2 skipped in 0.13s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.62,
+  "note": "deep nesting within the size limit; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "extra_key",
+  "artifact_sha256": "b1d42a557f1ff3f981a019f074d4816e589893274259207084b9d1b1ae2bc39c",
+  "artifact_preview": "{\"k\": 0.5862921981480419, \"rho_c\": 1638904.1729338337, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4\": 40.6042",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_top_level_keys_are_exact - AssertionError: top-l...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 2 failed, 3 passed, 2 skipped in 0.08s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.57,
+  "note": "fourth top-level key; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "missing_prediction",
+  "artifact_sha256": "13d561a789f2264379dacb6b9b3c5eb3f7be3c556fd241388f3c926714bb04c1",
+  "artifact_preview": "{\"k\": 0.5862921981480419, \"rho_c\": 1638904.1729338337, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4\": 40.6042",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 1 failed, 4 passed, 2 skipped in 0.09s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.58,
+  "note": "one id missing; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "extra_predictions_flood",
+  "artifact_sha256": "182daa9309530503ed1e734014070bc848251a1b51b3f65e9b0a9fce8028b692",
+  "artifact_preview": "{\"k\": 0.5862921981480419, \"rho_c\": 1638904.1729338337, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4\": 40.6042",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 1 failed, 4 passed, 2 skipped in 0.08s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.59,
+  "note": "submitting answers for guessed hidden ids; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "k_out_of_range",
+  "artifact_sha256": "8edcfeab2f7aa6c2c39da2a2d02e26873f4a9693c88c528e5236ecb9d8e72340",
+  "artifact_preview": "{\"k\": 1000000.0, \"rho_c\": 1638904.1729338337, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4\": 40.6042065768417",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges - Asser...",
+   "FAILED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids - ans...",
+   "==================== 2 failed, 3 passed, 2 skipped in 0.09s ====================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.59,
+  "note": "k outside the stated range; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "agent_visible_objects_only",
+  "artifact_sha256": "30717589f3bb83ce559d3a890c0c252270180d9b8c60c0c764321c2ea9caadf0",
+  "artifact_preview": "{\"k\": 1.14, \"rho_c\": 1728000.0, \"predictions\": {\"P1\": 22.0, \"P2\": 25.0, \"P3\": 20.0, \"P4\": 23.5, \"P5\": 19.0, \"P6\": 22.0}}",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_visible_predictions_within_tolerance - Assertion...",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 2 failed, 5 passed in 0.07s ==========================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.53,
+  "note": "answer assembled only from shipped reference objects; no side effect"
+ },
+ {
+  "kind": "PROBE",
+  "name": "correct_visible_wrong_model",
+  "artifact_sha256": "4be5d1c0b5d7f073c2375874c9fde0c1295715d11e33cbb1c7d09fb8e1820d2d",
+  "artifact_preview": "{\"k\": 0.6449214179628462, \"rho_c\": 1802794.5902272172, \"predictions\": {\"P1\": 88.94751990792736, \"P2\": 34.993678043960905, \"P3\": 88.74759553034468, \"P4\": 40.6042",
+  "test_sh_exit": 0,
+  "reward": "0",
+  "expected": "0",
+  "as_expected": true,
+  "verifier_lines": [
+   "==================================== PASSES ====================================",
+   "=========================== short test summary info ============================",
+   "FAILED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model",
+   "========================= 1 failed, 6 passed in 0.09s ==========================",
+   "reward: 0",
+   "SIDE-EFFECT: pwned=False"
+  ],
+  "wall_s": 0.57,
+  "note": "visible predictions copied from a correct run, model perturbed 10%; no side effect"
+ },
+ {
+  "kind": "LYING-TRUTH",
+  "name": "tampered_instance_constants",
+  "test_sh_exit": 1,
+  "reward": "NO REWARD FILE",
+  "expected": "infrastructure error (no reward file)",
+  "as_expected": true,
+  "verifier_lines": [
+   "VERIFIER INFRASTRUCTURE ERROR: derive_truth.py exited 2: derive_truth failed: RuntimeError('truth digest 902042a511a37df7a0444fab882d07f54cba9a3b7677c4e51ad8df8fe679829a does not match lock aaff0d11bbde681dcccd12de6090f1038328c1c188cccbd775c098a2a576b788')",
+   "VERIFIER INFRASTRUCTURE ERROR: grader exit status 2"
+  ],
+  "wall_s": 0.35,
+  "note": "lock over instance bytes + graded answers rejects the forged truth"
+ }
+]

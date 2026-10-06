@@ -1,0 +1,51 @@
+[1] two-block logger means: closed form (half-spaces) vs finite 60 mm blocks (Talbot)
+  run A t=  32.0 x=0.00120 m  closed=0.264342432  talbot=0.264342432  diff=-1.11e-16 K
+  run A t=  32.0 x=0.00570 m  closed=0.000000111  talbot=0.000000111  diff=9.26e-23 K
+  run A t=  34.0 x=0.00120 m  closed=1.241988075  talbot=1.241988075  diff=-2.22e-16 K
+  run A t=  34.0 x=0.00570 m  closed=0.000278432  talbot=0.000278432  diff=-5.73e-17 K
+  run A t=  60.0 x=0.00120 m  closed=9.371386778  talbot=9.371386778  diff=-1.78e-14 K
+  run A t=  60.0 x=0.00570 m  closed=1.683197291  talbot=1.683197291  diff=-2.00e-15 K
+  run A t= 182.0 x=0.00120 m  closed=25.974865810  talbot=25.974865810  diff=-1.39e-13 K
+  run A t= 182.0 x=0.00570 m  closed=13.951080562  talbot=13.951080562  diff=5.51e-14 K
+  run A t= 300.0 x=0.00120 m  closed=19.194017507  talbot=19.194017507  diff=-9.53e-10 K
+  run A t= 300.0 x=0.00570 m  closed=14.728988068  talbot=14.728988068  diff=-1.02e-10 K
+  run A t= 400.0 x=0.00120 m  closed=13.836041684  talbot=13.836042109  diff=-4.25e-07 K
+  run A t= 400.0 x=0.00570 m  closed=12.632759993  talbot=12.632760074  diff=-8.12e-08 K
+  run A t= 480.0 x=0.00120 m  closed=12.012641888  talbot=12.012650274  diff=-8.39e-06 K
+  run A t= 480.0 x=0.00570 m  closed=11.245425037  talbot=11.245427160  diff=-2.12e-06 K
+  run B t=  32.0 x=0.00120 m  closed=0.413035049  talbot=0.413035049  diff=-1.11e-16 K
+  run B t=  32.0 x=0.00570 m  closed=0.000000173  talbot=0.000000173  diff=1.59e-22 K
+  run B t=  34.0 x=0.00120 m  closed=1.940606368  talbot=1.940606368  diff=0.00e+00 K
+  run B t=  34.0 x=0.00570 m  closed=0.000435049  talbot=0.000435049  diff=-8.94e-17 K
+  run B t=  60.0 x=0.00120 m  closed=14.642791840  talbot=14.642791840  diff=-2.66e-14 K
+  run B t=  60.0 x=0.00570 m  closed=2.629995767  talbot=2.629995767  diff=-3.11e-15 K
+  run B t= 182.0 x=0.00120 m  closed=20.873476083  talbot=20.873476083  diff=-3.55e-13 K
+  run B t= 182.0 x=0.00570 m  closed=11.832087038  talbot=11.832087038  diff=-2.13e-13 K
+  run B t= 300.0 x=0.00120 m  closed=22.585680977  talbot=22.585680979  diff=-1.46e-09 K
+  run B t= 300.0 x=0.00570 m  closed=14.118283352  talbot=14.118283353  diff=-1.57e-10 K
+  run B t= 400.0 x=0.00120 m  closed=16.980831014  talbot=16.980831590  diff=-5.76e-07 K
+  run B t= 400.0 x=0.00570 m  closed=14.881005981  talbot=14.881006094  diff=-1.13e-07 K
+  run B t= 480.0 x=0.00120 m  closed=14.066824526  talbot=14.066834478  diff=-9.95e-06 K
+  run B t= 480.0 x=0.00570 m  closed=12.962772746  talbot=12.962775350  diff=-2.60e-06 K
+  max |diff| = 9.95e-06 K (logger resolution 1e-3 K, noise 1.5e-2 K)
+[2] panel series vs Talbot inversion
+  P1 series=66.9611338424 talbot=66.9611338424 rel=0.00e+00
+  P2 series=9.9922864628 talbot=9.9922864628 rel=1.78e-16
+  P3 series=68.7627864991 talbot=68.7627864991 rel=-1.03e-15
+  P4 series=17.1080222599 talbot=17.1080222599 rel=-6.23e-16
+  P5 series=30.7887179103 talbot=30.7887179103 rel=-8.08e-16
+  P6 series=43.3633500433 talbot=43.3633500433 rel=8.19e-16
+  H01 series=30.1934925424 talbot=30.1934925424 rel=7.06e-16
+  H02 series=99.4110473674 talbot=99.4110473674 rel=0.00e+00
+  H03 series=3.0240737391 talbot=3.0240737391 rel=-4.41e-16
+  H04 series=42.3192306936 talbot=42.3192306936 rel=-1.68e-16
+  H05 series=32.3728614676 talbot=32.3728614676 rel=0.00e+00
+  H06 series=22.5496301747 talbot=22.5496301747 rel=-1.10e-15
+  H07 series=51.5584424196 talbot=51.5584424196 rel=1.38e-16
+  H08 series=1.4117249682 talbot=1.4117249682 rel=-6.29e-16
+  H09 series=11.8890834033 talbot=11.8890834033 rel=1.79e-15
+  H10 series=19.2654133489 talbot=19.2654133489 rel=3.69e-16
+  H11 series=61.9917897588 talbot=61.9917897588 rel=4.58e-16
+  H12 series=12.7914157245 talbot=12.7914157245 rel=1.39e-16
+  max rel diff = 1.79e-15
+CROSSCHECK PASS
