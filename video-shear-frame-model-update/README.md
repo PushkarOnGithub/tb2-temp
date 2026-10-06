@@ -20,20 +20,25 @@ as required by the pipeline). It discloses the model family, the
 rolling-shutter timing convention, the as-tested mass rule, the output
 contract, the held-out family, count and split (19 mass-only and 21
 mass-plus-stiffness variants), the tolerance and the binary reward rule. It
-also pins the two rules that decide the answer, phrased as properties of the
+also pins the rules that decide the answer, phrased as properties of the
 specimen and the camera:
 
 * "Damping is classical, ... so every mode shape is real: referred to a common
-  instant, the floor motions of a mode are in phase or in antiphase. Natural
-  frequencies may exceed half the frame rate; the camera has no anti-aliasing
-  filter, so such a mode appears in the video at its folded frequency." This
-  fixes the continuous-time branch of every identified mode.
+  instant, the floor motions of a mode are in phase or in antiphase." and "The
+  camera has no anti-aliasing filter, and natural frequencies may exceed half
+  the frame rate F. A mode of frequency f appears in the video at f - qF, for the
+  integer q that puts it between -F/2 and F/2. When f - qF is negative, the video
+  shows the mode at qF - f through its negative-frequency component, so the
+  shape identified there carries the rolling-shutter phase of frequency -f: it
+  is the complex conjugate of the shape the mode would show at +f." Together
+  these fix the continuous-time branch of every identified mode, including the
+  sign convention for a mode folded from the upper half of a band.
 * "Several stiffness vectors share the frame's four natural frequencies; the
   specimen's k is the one whose mode shapes also match the measured ones." This
   fixes the stiffness branch.
 
-It does not say which mode is folded, nor how the shape of a folded mode relates
-to the frequency at which the video shows it.
+It does not say which mode is folded or at what frequency; the agent has to
+apply these properties to its own identified modes.
 
 ## Environment and inputs
 
@@ -140,16 +145,18 @@ plausible frame, k = 6983, 6984, 6665, 3848 N/m, which fails 71 of the 164
 graded frequencies with errors up to 31 % (N1, N3, N5). An agent that applies
 the folding statement only where the data look suspicious applies it nowhere.
 
-**Crux 2: the folded mode is seen through its negative-frequency component.**
-The stated real-shape property decides the fold only if it is applied with the
-right sign. A mode at 14.53 Hz has components at +14.53 and -14.53 Hz; at 25 fps
+**Crux 2: applying the stated sign convention to the folded mode.** The
+instruction states that a mode folded from the upper half of a band is seen
+through its negative-frequency component; the agent still has to recognise that
+mode 4 is such a mode and carry the convention through its own identification
+code (pole, shape and shutter phase must use the same signed frequency). A mode at 14.53 Hz has components at +14.53 and -14.53 Hz; at 25 fps
 it is the -14.53 Hz component that lands at +10.47 Hz, so the shape identified
 at +10.47 Hz carries the shutter phase of -14.53 Hz. Referring that shape to a
-common instant with the obvious candidate +14.53 Hz makes it *less* real
-(imag/real 0.45) than leaving the mode at 10.47 Hz (0.38), and the most nearly
-real positive candidate is 85.47 Hz (0.16). The natural test of the natural
-hypothesis therefore rejects the truth: the agent keeps 10.47 Hz (31 %) or takes
-85.47 Hz (k_1 = 1.5 MN/m, 610 %; N13). Only the signed frequency -14.53 Hz,
+common instant with +14.53 Hz instead, which is what the habitual
+positive-frequency bookkeeping does, makes it *less* real (imag/real 0.45) than
+leaving the mode at 10.47 Hz (0.38), and the most nearly real positive
+candidate is 85.47 Hz (0.16). An agent that slips here keeps 10.47 Hz (31 %) or
+takes 85.47 Hz (k_1 = 1.5 MN/m, 610 %; N13). Only the signed frequency -14.53 Hz,
 equivalently the conjugate shape referred at +14.53 Hz, gives a real shape
 (imag/real 0.002, the next branch 73 times worse). The decay-rate route (the
 Rayleigh line implied by C = a0*M + a1*K) avoids the sign issue but separates
@@ -216,7 +223,7 @@ oracle that evaluates a candidate model.
 | # | likely behaviour | why it is silent |
 |---|---|---|
 | 1 | Reads the folding sentence but finds no mode that looks folded, takes SSI/FDD/peak frequencies at face value and updates k to them (N1/N3/N5). | Exact frequency match; every value below Nyquist; plausible near-uniform frame. "Below Nyquist" is a common but fallacious sanity check: folded frequencies are always below Nyquist. |
-| 2 | Tests the fold with the stated real-shape property but refers the identified shape at a positive candidate frequency (N13), or assumes the non-reflected fold fs + f (N4). | The true fold looks *worse* than no fold (0.45 vs 0.38); the least-complex candidate is 85.47 Hz. Each candidate yields a well-formed frame. |
+| 2 | Tests the fold but refers the identified shape at a positive candidate frequency, contrary to the stated convention (N13), or assumes the non-reflected fold fs + f (N4). | The true fold then looks *worse* than no fold (0.45 vs 0.38) and the least-complex candidate is 85.47 Hz; each candidate yields a well-formed frame. The convention is stated, but it has to be applied inside the agent's own pole/shape bookkeeping. |
 | 3 | Treats the rolling shutter as a preprocessing nuisance: resamples channels by interpolation (N8), or ignores it (N7), or corrects shapes with the apparent pole. | Interpolation assumes band-limited signals, which is exactly what fails; the output still looks like four modes. |
 | 4 | Uses design masses (N6). | Masses never enter an output-only fit; all diagnostics are unchanged. |
 | 5 | Assumes T1..T4 = floors 1..4 (N10). | Frequencies are unaffected; refinement lands on an isospectral frame that matches the tested frame exactly. |
@@ -229,15 +236,18 @@ oracle that evaluates a candidate model.
 Each independent crux has a fast, confident, well-formed wrong default. Rough
 per-trial estimates for a strong agent now that both deciding rules are stated:
 applies the folding rule to every mode, including ones that look ordinary, 0.8;
-gets the folded mode's sign right or resolves it by the Rayleigh line 0.5;
+carries the stated sign convention through its own pole/shape code (or uses the
+Rayleigh line) 0.7;
 respects the as-tested mass rule 0.85; reads the label map 0.95; keeps
 per-target scales in a shape-based estimator 0.9; completes output-only
-identification correctly inside 600 s 0.9. Product: about 0.25-0.3 per trial,
-which makes at least 3 failures in 5 trials likely (about 0.8-0.9). Stating the
-rules (required by the contested-conventions review) moved the difficulty from
-"does the agent think of folding" to "does it apply the stated property
-correctly to a folded mode", which is the sampled-data subtlety the task is
-about. Most failures should be committed-wrong
+identification correctly inside 600 s 0.9. Product: about 0.35-0.4 per trial,
+which gives at least 3 failures in 5 trials with probability about 0.65-0.75.
+Stating the fold, the sign convention and the shape-match rule (required by the
+contested-conventions review) lowered the difficulty: what remains is applying
+stated physics to modes that the data do not flag, inside a long output-only
+identification chain, plus the mass, label and scale traps. If the difficulty
+gate reports the task as too easy, the structural lever is a second folded mode
+(new instance, same verifier design). Most failures should be committed-wrong
 rather than in-progress: the default pipeline finishes in a few minutes and
 every check it runs passes. The task separates models on one decision, whether
 they treat the identified frequencies as the frame's frequencies. Pipeline
