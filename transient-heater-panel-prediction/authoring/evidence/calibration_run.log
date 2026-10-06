@@ -1,0 +1,53 @@
+P1     oracle_offline                               reward=1              expected=1              OK   reference solution, network removed
+NOOP   no_answer_file                               reward=0              expected=0              OK   agent did nothing
+POS    B1_panel_series_5_terms                      reward=1              expected=1              OK   
+NEG    N10_panel_fd_implicit_euler_51x1s            reward=0              expected=0              OK   
+NEG    N11_panel_fd_cn_51x1s                        reward=0              expected=0              OK   
+NEG    N12_panel_fd_cn_101x0.25s                    reward=0              expected=0              OK   
+NEG    N13_panel_mol_bdf_default_tol                reward=0              expected=0              OK   
+NEG    N1_power_V_times_I                           reward=0              expected=0              OK   
+NEG    N2_power_V2_over_R                           reward=0              expected=0              OK   
+NEG    N3_all_power_into_specimen                   reward=0              expected=0              OK   
+NEG    N4_symmetric_half_split                      reward=0              expected=0              OK   
+NEG    N5_radiograph_depths_as_is                   reward=0              expected=0              OK   
+NEG    N6_magnification_inverted                    reward=0              expected=0              OK   
+NEG    N7_logger_instantaneous                      reward=0              expected=0              OK   
+NEG    N8_logger_window_starts_at_stamp             reward=0              expected=0              OK   
+NEG    N9_compound_default                          reward=0              expected=0              OK   
+POS    P1_reference                                 reward=1              expected=1              OK   
+POS    P2_independent_fd                            reward=1              expected=1              OK   
+POS    P2b_panel_cn_401_nodes_0.02s                 reward=1              expected=1              OK   
+POS    P3_t0_from_pre_heating_mean                  reward=1              expected=1              OK   
+POS    P3_window_midpoint_approx                    reward=1              expected=1              OK   
+FMT    compact                                      reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    indent4_sorted                               reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    predictions_first                            reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    prediction_keys_reversed                     reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    exponent_notation                            reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    rho_c_integer                                reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    rounded_4_decimals                           reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    crlf                                         reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    no_trailing_newline                          reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    utf8_bom                                     reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    unicode_escaped_keys                         reward=1              expected=1              OK   valid serialisation of the oracle answer
+FMT    whitespace_padding                           reward=1              expected=1              OK   valid serialisation of the oracle answer
+PROBE  symlink_to_lock                              reward=0              expected=0              OK   answer path is a symlink to verifier data; no side effect
+PROBE  symlink_to_passwd                            reward=0              expected=0              OK   symlink to a system file; no side effect
+PROBE  fifo_answer                                  reward=0              expected=0              OK   FIFO would block a naive open(); no side effect
+PROBE  directory_answer                             reward=0              expected=0              OK   directory at the answer path; no side effect
+PROBE  dev_zero_symlink                             reward=0              expected=0              OK   endless device; no side effect
+PROBE  oversized                                    reward=0              expected=0              OK   valid JSON padded past 64 KiB; no side effect
+PROBE  code_injection_strings                       reward=0              expected=0              OK   strings that would execute if eval'd; no side effect
+PROBE  nan_infinity                                 reward=0              expected=0              OK   non-finite constants; no side effect
+PROBE  overflow_exponent                            reward=0              expected=0              OK   1e999 parses to inf; no side effect
+PROBE  duplicate_keys                               reward=0              expected=0              OK   duplicate key shadowing; no side effect
+PROBE  booleans                                     reward=0              expected=0              OK   bools are not numbers; no side effect
+PROBE  nesting_bomb                                 reward=0              expected=0              OK   deep nesting within the size limit; no side effect
+PROBE  extra_key                                    reward=0              expected=0              OK   fourth top-level key; no side effect
+PROBE  missing_prediction                           reward=0              expected=0              OK   one id missing; no side effect
+PROBE  extra_predictions_flood                      reward=0              expected=0              OK   submitting answers for guessed hidden ids; no side effect
+PROBE  k_out_of_range                               reward=0              expected=0              OK   k outside the stated range; no side effect
+PROBE  agent_visible_objects_only                   reward=0              expected=0              OK   answer assembled only from shipped reference objects; no side effect
+PROBE  correct_visible_wrong_model                  reward=0              expected=0              OK   visible predictions copied from a correct run, model perturbed 10%; no side effect
+LIE    tampered_instance_constants                  reward=NO REWARD FILE expected=infra-error    OK   truth module rewritten to agree with a trap-blind answer
+TOTAL runs=52 unexpected=0

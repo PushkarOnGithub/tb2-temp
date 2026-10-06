@@ -1,0 +1,24 @@
+{
+  "heater": {
+    "element_resistance_ohm": 5.8,
+    "width_m": 0.08,
+    "length_m": 0.08,
+    "supply_lead_length_m": 1.5
+  },
+  "specimen_block": {
+    "thickness_m": 0.06
+  },
+  "base_block": {
+    "material": "borosilicate glass",
+    "thickness_m": 0.06,
+    "k_W_per_mK": 1.14,
+    "rho_c_J_per_m3K": 1728000.0
+  },
+  "logger": {
+    "interval_s": 2.0
+  },
+  "radiograph": {
+    "focal_spot_to_detector_mm": 1000.0,
+    "bead_plane_to_detector_mm": 120.0
+  }
+}

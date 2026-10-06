@@ -1,0 +1,17 @@
+[1] Monte Carlo over noise realisations (reference pipeline)
+    k: mean +1.05e-05 sd 2.03e-04 max|.| 5.71e-04   rho_c: mean -1.14e-05 sd 1.79e-04 max|.| 3.65e-04
+    worst |T - T_true| / band over 36 graded temperatures: median 0.036, max 0.116 (pass needs <= 1)
+[2] numerical schemes on the visible scenarios (relative error of the rise)
+    FD implicit Euler 51 nodes dt=1s         P1 -0.0004   P2 -0.0094*  P3 -0.0009   P4 +0.0386*  P5 -0.0027   P6 -0.0226*
+    FD Crank-Nicolson 51 nodes dt=1s         P1 -0.0000   P2 -0.0055   P3 -0.0005   P4 +0.0238*  P5 -0.0013   P6 -0.0148*
+    FD Crank-Nicolson 101 nodes dt=0.25s     P1 -0.0000   P2 -0.0014   P3 -0.0001   P4 +0.0061*  P5 -0.0003   P6 -0.0036 
+    FD Crank-Nicolson 401 nodes dt=0.02s     P1 -0.0000   P2 +0.0001   P3 +0.0000   P4 +0.0005   P5 +0.0000   P6 +0.0003 
+    MOL solve_ivp BDF default tolerances     P1 -0.0000   P2 +0.0019   P3 +0.0006   P4 +0.0001   P5 -0.0018   P6 -0.0099*
+    MOL solve_ivp RK45 default tolerances    P1 -0.0001   P2 -0.0002   P3 +0.0002   P4 -0.0002   P5 +0.0004   P6 +0.0001 
+    eigen-series 5 terms                     P1 +0.0000   P2 -0.0000   P3 +0.0000   P4 -0.0000   P5 +0.0000   P6 -0.0011 
+    (* = outside the band)
+[3] fit run A only, predict run B (RMS on run B; pre-heating scatter ~0.014 K)
+    reference        RMS on unseen run B = 0.0155 K
+    T1 V*I           RMS on unseen run B = 0.0156 K
+    T2 all power     RMS on unseen run B = 0.0155 K
+    T3 depths as-is  RMS on unseen run B = 0.0155 K

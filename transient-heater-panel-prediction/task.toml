@@ -1,0 +1,32 @@
+schema_version = "1.3"
+artifacts = ["/app/answer.json"]
+
+[task]
+name = "turing/transient-heater-panel-prediction"
+description = "Recover a potting compound's thermal conductivity and volumetric heat capacity from raw two-block transient heater logs, then predict panel temperatures under new heating."
+keywords = ["inverse heat conduction", "thermal effusivity", "transient contact method", "parameter estimation", "measurement model", "eigenfunction expansion"]
+
+[metadata]
+domain = "Engineering"
+field = "Mechanical Engineering"
+subfield = "Heat Transfer and Thermophysical Property Measurement"
+tags = ["inverse-problem", "transient-conduction", "nonlinear-least-squares", "metrology", "data-reduction", "pde"]
+expert_time_estimate_hours = 1.0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 300.0
+environment_mode = "separate"
+
+[verifier.environment]
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0

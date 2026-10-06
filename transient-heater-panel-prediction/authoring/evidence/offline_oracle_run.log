@@ -1,0 +1,46 @@
+$ docker run --network none <agent image> /solution/solve.sh   (network removed)
+NETWORK: unreachable -> gaierror
+interfaces present: lo:
+run A: V/I = 6.1722 ohm vs element 5.8000 ohm -> leads dissipate the difference
+run B: V/I = 6.1720 ohm vs element 5.8000 ohm -> leads dissipate the difference
+fit: e_s+e_b = 2383.78, alpha = 3.57734e-07, rms = 0.0155 K (pre-heating scatter 0.0141 K)
+k = 0.58629 W/m/K, rho_c = 1.63890e+06 J/m3/K, Fo_specimen = 0.042, Fo_base = 0.077
+wrote /app/answer.json {"P1": 88.94751990792736, "P2": 34.993678043960905, "P3": 88.74759553034468, "P4": 40.60420657684173, "P5": 49.783264923104355, "P6": 65.35454146655275}
+ORACLE exit=0 wall_s=0.61
+-rw-r--r-- 1 root root 260 Oct  6 11:51 /app/answer.json
+artifact /app/answer.json sha256=cba3822666ccedac7fb86f011658703d6106f2e90ed5e9f86a610f886bc7a46c
+{
+  "k": 0.5862921981480419,
+  "rho_c": 1638904.1729338337,
+  "predictions": {
+    "P1": 88.94751990792736,
+    "P2": 34.993678043960905,
+    "P3": 88.74759553034468,
+    "P4": 40.60420657684173,
+    "P5": 49.783264923104355,
+    "P6": 65.35454146655275
+  }
+}
+$ docker run --network none <verifier image> bash /tests/test.sh
+visible 6/6 and hidden 30/30 temperatures within tolerance
+VERDICT: PASS transient-heater-panel-prediction all-36-temperatures-within-tolerance
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.5, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 7 items
+
+test_outputs.py .......                                                  [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED test_outputs.py::test_answer_is_regular_bounded_file
+PASSED test_outputs.py::test_answer_is_strict_json_object
+PASSED test_outputs.py::test_top_level_keys_are_exact
+PASSED test_outputs.py::test_k_and_rho_c_are_numbers_in_stated_ranges
+PASSED test_outputs.py::test_predictions_cover_exactly_the_scenario_ids
+PASSED test_outputs.py::test_visible_predictions_within_tolerance
+PASSED test_outputs.py::test_hidden_scenarios_within_tolerance_under_reported_model
+============================== 7 passed in 0.10s ===============================
+reward: 1
+verifier exit=0 reward=1 wall_s=0.74
