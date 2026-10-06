@@ -1,0 +1,26 @@
+true natural frequencies (Hz): [ 1.755   4.6733  7.6518 14.5242]
+frame rate 25.0 Hz, Nyquist 12.50 Hz
+
+1a. per-mode branch scores, criterion = imag/real of shutter-corrected shape
+  mode 1 (apparent 1.7544 Hz): best 1.7544 Hz ratio 7.24e-04 | runner-up 23.2456 Hz ratio 6.16e-01 | margin x851
+  mode 2 (apparent 4.6734 Hz): best 4.6734 Hz ratio 9.53e-04 | runner-up 79.6734 Hz ratio 5.74e-01 | margin x602
+  mode 3 (apparent 7.6499 Hz): best 7.6499 Hz ratio 3.36e-03 | runner-up 42.3501 Hz ratio 4.68e-01 | margin x139
+  mode 4 (apparent 10.4659 Hz): best 14.5341 Hz ratio 2.23e-03 | runner-up 85.4659 Hz ratio 1.63e-01 | margin x73
+
+1b/1c. joint enumeration over all branch combinations (frequencies <= 60 Hz)
+  500 combinations enumerated
+  shear-pattern residual: best 3.04e-03 at f=[ 1.755  4.673  7.65  14.534]; runner-up 4.89e-02 at f=[ 1.755  4.673  7.65  39.534] (x16)
+  Rayleigh-line residual: best 0.029 at f=[ 1.755  4.673  7.65  14.534]; runner-up 0.048 at f=[ 1.755  4.673 17.35  35.466]
+  principal-branch (alias-blind) combination: pattern residual 1.44e-01, Rayleigh residual 0.118
+  pattern and Rayleigh criteria select the same combination: True
+
+2. isospectral twins of the true spectrum (as-tested masses)
+  k=[ 4930. 18880.  5080.  5100.]  min MAC vs measured shapes 1.0000   <- true
+  k=[36673.6  5044.9  4474.8  2912.7]  min MAC vs measured shapes 0.5972
+  2 positive stiffness vectors share the four true frequencies
+
+3. outside readings of stated conventions (branch chosen by shutter-corrected realness)
+  stated: row r captured at t_n + r*tau      -> f=[ 1.754  4.673  7.65  14.534]  worst best-ratio 3.36e-03
+  timestamp at mid-frame row 540             -> f=[ 1.754  4.673  7.65  14.534]  worst best-ratio 3.36e-03
+  rows counted from 1                        -> f=[ 1.754  4.673  7.65  14.534]  worst best-ratio 3.36e-03
+  rows read bottom-to-top (1080 rows)        -> f=[ 1.754  4.673 10.466 17.35 ]  worst best-ratio 3.07e-01

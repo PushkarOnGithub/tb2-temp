@@ -1,0 +1,32 @@
+schema_version = "1.3"
+artifacts = ["/app/output/model.json"]
+
+[task]
+name = "turing/video-shear-frame-model-update"
+description = "Update the storey stiffnesses of a four-storey shear-frame model from 600 s of rolling-shutter video of an output-only shaker test and write them to /app/output/model.json."
+keywords = ["structural dynamics", "operational modal analysis", "system identification", "model updating", "rolling shutter", "vision-based measurement"]
+
+[metadata]
+domain = "engineering"
+field = "civil-engineering"
+subfield = "structural-dynamics"
+tags = ["stochastic-subspace-identification", "sampled-data-identification", "finite-element-model-updating", "inverse-eigenvalue-problem", "vision-based-vibration-measurement"]
+expert_time_estimate_hours = 1.5
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 300.0
+environment_mode = "separate"
+
+[verifier.environment]
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0

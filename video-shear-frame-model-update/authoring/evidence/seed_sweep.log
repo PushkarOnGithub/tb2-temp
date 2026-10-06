@@ -1,0 +1,9 @@
+max relative error of the 164 graded frequencies (%) over 10 noise realisations
+estimator                       min   median      max
+oracle                        0.035    0.173    0.298
+shapes-only                   0.083    0.685    1.137
+fdd                           0.267    0.371    0.953
+shutter-ignored(shapes)       1.936    2.710    4.297
+pixel-units(shapes)           6.586    7.409    9.131
+design-masses                 9.513    9.611    9.710
+alias-blind                  31.241   31.380   31.406

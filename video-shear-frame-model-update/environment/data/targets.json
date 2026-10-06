@@ -1,0 +1,22 @@
+{
+  "T1": {
+    "floor": 2,
+    "image_row": 642,
+    "mm_per_px": 0.4296
+  },
+  "T2": {
+    "floor": 4,
+    "image_row": 158,
+    "mm_per_px": 0.4092
+  },
+  "T3": {
+    "floor": 1,
+    "image_row": 884,
+    "mm_per_px": 0.4415
+  },
+  "T4": {
+    "floor": 3,
+    "image_row": 401,
+    "mm_per_px": 0.4188
+  }
+}

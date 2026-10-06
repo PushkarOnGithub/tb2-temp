@@ -1,0 +1,7 @@
+mutant                                             evidence(worst imag/real)  reward  out-of-tol/164  max|df/f|   k
+none (oracle)                                        3.36e-03                1          0       0.08%   [ 4932. 18917.  5056.  5114.]
+as-tested mass rule -> design masses                 3.36e-03                0         65       9.66%   [ 6404. 19082.  3046.  5283.]
+shutter timing rule -> all targets at t_n            2.15e-01                0         71      31.44%   [6983. 6984. 6665. 3848.]
+shutter timing rule -> rows read bottom-to-top       3.07e-01                0        148      73.18%   [ 5790.  9194.  3152. 38352.]
+per-target scale rule -> pixels                      3.34e-03                1          0       0.08%   [ 4932. 18917.  5056.  5114.]
+target->floor map -> T1..T4 = floors 1..4            3.36e-03                0         83      18.20%   [36745.  5036.  4472.  2915.]

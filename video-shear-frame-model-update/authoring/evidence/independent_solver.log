@@ -1,0 +1,7 @@
+Whittle fit of the shear-frame model to the Welch CSD matrix (507 bins, 28 segments)
+graded quantity: max relative error of the 164 held-out natural frequencies (tolerance 3%)
+
+folding |m|<=4, shutter modelled, start: reference x1.05       -> k=[ 4932.3 18877.5  5082.   5099.6] a0=0.1516 a1=9.377e-05  -logL=-1.6444e+07  held-out max err 0.02%
+folding |m|<=4, shutter modelled, start: alias-blind default   -> k=[ 4932.3 18877.5  5082.   5099.6] a0=0.1516 a1=9.377e-05  -logL=-1.6444e+07  held-out max err 0.02%
+negative control: no folding, shutter modelled                 -> k=[4993.4 9613.6 5184.5 5172.3] a0=0.0000 a1=8.429e-04  -logL=-1.3985e+07  held-out max err 25.32%
+negative control: folding, shutter delays ignored              -> k=[5084.4 8998.3 5131.1 5171.2] a0=0.7861 a1=1.677e-04  -logL=-1.3353e+07  held-out max err 27.25%
