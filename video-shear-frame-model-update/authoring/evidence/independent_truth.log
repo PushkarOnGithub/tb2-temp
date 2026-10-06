@@ -1,0 +1,6 @@
+T1 (floor 2): max |shipped - independent| = 4.99e-04 px over 1500 frames (file rounding 5e-4 px)
+T2 (floor 4): max |shipped - independent| = 5.00e-04 px over 1500 frames (file rounding 5e-4 px)
+T3 (floor 1): max |shipped - independent| = 5.00e-04 px over 1500 frames (file rounding 5e-4 px)
+T4 (floor 3): max |shipped - independent| = 4.99e-04 px over 1500 frames (file rounding 5e-4 px)
+natural frequencies numpy [ 1.755031  4.673321  7.651826 14.52421 ] vs stdlib [ 1.755031  4.673321  7.651826 14.52421 ], max rel diff 4.4e-16
+INDEPENDENT TRUTH CHECK: PASS

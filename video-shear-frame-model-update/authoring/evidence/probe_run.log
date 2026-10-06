@@ -1,0 +1,31 @@
+Probes run through bash /tests/test.sh in the verifier image (--network none)
+
+X01 code-injection strings                                                 exit=0 reward=0 pwned=False  1.41s OK | FAIL contract: k[0] must be a JSON number
+X02 dunder/attribute walk object                                           exit=0 reward=0 pwned=False  1.30s OK | FAIL contract: k must be a list of exactly four numbers
+X03 open()-and-write-reward payload                                        exit=0 reward=0 pwned=False  1.28s OK | FAIL contract: k must be a list of exactly four numbers
+X04 nested-list expression bomb (depth 30000)                              exit=0 reward=0 pwned=False  1.45s OK | FAIL contract: model.json is not valid JSON
+X05 symlink to the verifier's truth deriver                                exit=0 reward=0 pwned=False  1.30s OK | FAIL contract: model.json must be a regular file (not a symlink, FIFO or device)
+X06 symlink to /dev/zero                                                   exit=0 reward=0 pwned=False  1.32s OK | FAIL contract: model.json must be a regular file (not a symlink, FIFO or device)
+X07 FIFO at the artifact path                                              exit=0 reward=0 pwned=False  1.51s OK | FAIL contract: model.json must be a regular file (not a symlink, FIFO or device)
+X08 oversized file (70 KiB of whitespace + valid model)                    exit=0 reward=0 pwned=False  1.40s OK | FAIL contract: model.json is larger than 65536 bytes
+X09 NaN and Infinity values                                                exit=0 reward=0 pwned=False  1.42s OK | FAIL contract: model.json: NaN is not a finite number
+X10 duplicate key: wrong k then right k                                    exit=0 reward=0 pwned=False  1.36s OK | FAIL contract: model.json: duplicate key 'k'
+X11 every-candidate submission (extra key with alternatives)               exit=0 reward=0 pwned=False  1.25s OK | FAIL contract: model.json must have exactly one key, k (found k, k_alternatives)
+X12 k given as strings                                                     exit=0 reward=0 pwned=False  1.58s OK | FAIL contract: k[0] must be a JSON number
+X13 out-of-range values (1e308, 0, negative)                               exit=0 reward=0 pwned=False  1.30s OK | FAIL contract: k[0] must lie in [1, 1e9] N/m
+X14 visible objects only: frame fitted to the four apparent frequencies    exit=0 reward=0 pwned=False  2.10s OK | FAIL accuracy: 71 of 164 natural frequencies out of tolerance
+X15 empty object                                                           exit=0 reward=0 pwned=False  1.35s OK | FAIL contract: model.json must have exactly one key, k (found )
+X16 eight stiffnesses (both candidate models concatenated)                 exit=0 reward=0 pwned=False  1.26s OK | FAIL contract: k must be a list of exactly four numbers
+I01 lying ground-truth module (same shipped bytes, forged answers)         exit=1 reward=None pwned=False  0.97s OK | infrastructure error expected
+L01 compact separators                                                     exit=0 reward=1  2.05s OK
+L02 indent 4 + trailing newline                                            exit=0 reward=1  1.99s OK
+L03 integers                                                               exit=0 reward=1  2.14s OK
+L04 exponent notation                                                      exit=0 reward=1  2.69s OK
+L05 upper-case exponent, no trailing newline                               exit=0 reward=1  1.95s OK
+L06 CRLF line endings                                                      exit=0 reward=1  2.13s OK
+L07 UTF-8 byte-order mark                                                  exit=0 reward=1  2.07s OK
+L08 unicode-escaped key name                                               exit=0 reward=1  2.21s OK
+L09 tabs and padding whitespace                                            exit=0 reward=1  2.03s OK
+L10 fixed-point with trailing zeros                                        exit=0 reward=1  2.04s OK
+L11 short rounding (3 significant digits)                                  exit=0 reward=1  2.07s OK
+L12 explicit +0 exponent                                                   exit=0 reward=1  2.09s OK

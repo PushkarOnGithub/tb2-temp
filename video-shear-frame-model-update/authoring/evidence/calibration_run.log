@@ -1,0 +1,18 @@
+Wrong-method harness and positive variants (graded by tests/check_submission.py)
+tolerance: 3% relative on each of 41 configurations x 4 natural frequencies = 164 graded values
+
+P1-oracle                      positive        reward=1 expected=1 OK   max|df/f|=  0.082%  out-of-tol=  0/164  k=[4932, 18917, 5056, 5114]  f_id=None
+P2-fdd                         positive        reward=1 expected=1 OK   max|df/f|=  0.542%  out-of-tol=  0/164  k=[4937, 18986, 4902, 5203]  f_id=[1.7495, 4.6715, 7.6369, 14.5418]
+P3-shapes-only                 positive        reward=1 expected=1 OK   max|df/f|=  1.255%  out-of-tol=  0/164  k=[5134, 18882, 5002, 5123]  f_id=[1.7545, 4.6735, 7.65, 14.5343]
+N1-alias-blind-freq-update     crux            reward=0 expected=0 OK   max|df/f|= 31.444%  out-of-tol= 71/164  k=[6983, 6984, 6665, 3848]  f_id=[1.7545, 4.6735, 7.65, 10.4662]
+N2-alias-blind-shapes          crux            reward=0 expected=0 OK   max|df/f|= 28.247%  out-of-tol=164/164  k=[4809, 9123, 3523, 5363]  f_id=[1.7545, 4.6735, 7.65, 10.4662]
+N3-alias-blind-shapes+freq     crux            reward=0 expected=0 OK   max|df/f|= 31.444%  out-of-tol= 71/164  k=[6983, 6984, 6665, 3848]  f_id=[1.7545, 4.6735, 7.65, 10.4662]
+N4-wrong-fold                  crux            reward=0 expected=0 OK   max|df/f|=148.679%  out-of-tol= 58/164  k=[6005, 126189, 2947, 6432]  f_id=[1.7545, 4.6735, 7.65, 35.466]
+N5-welch-peaks                 crux            reward=0 expected=0 OK   max|df/f|= 31.486%  out-of-tol= 70/164  k=[6938, 6991, 6626, 3850]  f_id=[1.7517, 4.6692, 7.6355, 10.4553]
+N6-design-masses               trap            reward=0 expected=0 OK   max|df/f|=  9.658%  out-of-tol= 65/164  k=[6404, 19082, 3046, 5283]  f_id=[1.7545, 4.6735, 7.65, 14.5343]
+N7-shutter-ignored             time-cost       reward=1 expected=1 OK   max|df/f|=  1.779%  out-of-tol=  0/164  k=[4773, 19086, 4758, 5150]  f_id=[1.7545, 4.6735, 7.65, 14.5343]
+N8-shutter-spline              trap            reward=0 expected=0 OK   max|df/f|=    nan%  out-of-tol=164/164  k=[-1629, 20105, 5923, 4947]  f_id=[1.7545, 4.6734, 7.65, 14.5346]
+N9-pixel-units                 trap            reward=0 expected=0 OK   max|df/f|=  6.029%  out-of-tol= 42/164  k=[4112, 19085, 5128, 5290]  f_id=[1.7545, 4.6735, 7.65, 14.5343]
+N10-label-order                trap            reward=0 expected=0 OK   max|df/f|= 18.197%  out-of-tol= 83/164  k=[36745, 5036, 4472, 2915]  f_id=[1.7545, 4.6735, 7.65, 14.5343]
+N11-freq-only-uniform-start    identifiability reward=0 expected=0 OK   max|df/f|= 19.236%  out-of-tol= 87/164  k=[6336, 4882, 20798, 3750]  f_id=[1.7545, 4.6735, 7.65, 14.5343]
+N12-isospectral-twin           identifiability reward=0 expected=0 OK   max|df/f|= 18.197%  out-of-tol= 83/164  k=[36745, 5036, 4472, 2915]  f_id=[1.7545, 4.6735, 7.65, 14.5343]

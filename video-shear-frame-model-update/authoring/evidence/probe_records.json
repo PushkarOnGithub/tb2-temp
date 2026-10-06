@@ -1,0 +1,292 @@
+[
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.41,
+  "pwned": false,
+  "grader_line": "FAIL contract: k[0] must be a JSON number",
+  "probe": "X01 code-injection strings",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.3,
+  "pwned": false,
+  "grader_line": "FAIL contract: k must be a list of exactly four numbers",
+  "probe": "X02 dunder/attribute walk object",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.28,
+  "pwned": false,
+  "grader_line": "FAIL contract: k must be a list of exactly four numbers",
+  "probe": "X03 open()-and-write-reward payload",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.45,
+  "pwned": false,
+  "grader_line": "FAIL contract: model.json is not valid JSON",
+  "probe": "X04 nested-list expression bomb (depth 30000)",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.3,
+  "pwned": false,
+  "grader_line": "FAIL contract: model.json must be a regular file (not a symlink, FIFO or device)",
+  "probe": "X05 symlink to the verifier's truth deriver",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.32,
+  "pwned": false,
+  "grader_line": "FAIL contract: model.json must be a regular file (not a symlink, FIFO or device)",
+  "probe": "X06 symlink to /dev/zero",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.51,
+  "pwned": false,
+  "grader_line": "FAIL contract: model.json must be a regular file (not a symlink, FIFO or device)",
+  "probe": "X07 FIFO at the artifact path",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.4,
+  "pwned": false,
+  "grader_line": "FAIL contract: model.json is larger than 65536 bytes",
+  "probe": "X08 oversized file (70 KiB of whitespace + valid model)",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.42,
+  "pwned": false,
+  "grader_line": "FAIL contract: model.json: NaN is not a finite number",
+  "probe": "X09 NaN and Infinity values",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.36,
+  "pwned": false,
+  "grader_line": "FAIL contract: model.json: duplicate key 'k'",
+  "probe": "X10 duplicate key: wrong k then right k",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.25,
+  "pwned": false,
+  "grader_line": "FAIL contract: model.json must have exactly one key, k (found k, k_alternatives)",
+  "probe": "X11 every-candidate submission (extra key with alternatives)",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.58,
+  "pwned": false,
+  "grader_line": "FAIL contract: k[0] must be a JSON number",
+  "probe": "X12 k given as strings",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.3,
+  "pwned": false,
+  "grader_line": "FAIL contract: k[0] must lie in [1, 1e9] N/m",
+  "probe": "X13 out-of-range values (1e308, 0, negative)",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 2.1,
+  "pwned": false,
+  "grader_line": "FAIL accuracy: 71 of 164 natural frequencies out of tolerance",
+  "probe": "X14 visible objects only: frame fitted to the four apparent frequencies",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.35,
+  "pwned": false,
+  "grader_line": "FAIL contract: model.json must have exactly one key, k (found )",
+  "probe": "X15 empty object",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "0",
+  "wall_s": 1.26,
+  "pwned": false,
+  "grader_line": "FAIL contract: k must be a list of exactly four numbers",
+  "probe": "X16 eight stiffnesses (both candidate models concatenated)",
+  "kind": "exploit",
+  "as_expected": true
+ },
+ {
+  "exit": 1,
+  "reward": null,
+  "wall_s": 0.97,
+  "pwned": false,
+  "grader_line": "VERIFIER INFRASTRUCTURE ERROR: InfraError('derive_truth exited 2: instance/answer digest mismatch: 52434cbfaf1beeabd37b962de320b451f3d1b2f5c1469449e4149c216f5b5b3f\\n')",
+  "probe": "I01 lying ground-truth module (same shipped bytes, forged answers)",
+  "kind": "verifier-corruption",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.05,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L01 compact separators",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 1.99,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L02 indent 4 + trailing newline",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.14,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L03 integers",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.69,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L04 exponent notation",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 1.95,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L05 upper-case exponent, no trailing newline",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.13,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L06 CRLF line endings",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.07,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L07 UTF-8 byte-order mark",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.21,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L08 unicode-escaped key name",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.03,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L09 tabs and padding whitespace",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.04,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L10 fixed-point with trailing zeros",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.07,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L11 short rounding (3 significant digits)",
+  "kind": "legitimate-format",
+  "as_expected": true
+ },
+ {
+  "exit": 0,
+  "reward": "1",
+  "wall_s": 2.09,
+  "pwned": false,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "probe": "L12 explicit +0 exponent",
+  "kind": "legitimate-format",
+  "as_expected": true
+ }
+]

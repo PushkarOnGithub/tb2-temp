@@ -1,0 +1,22 @@
+{
+  "design_floor_mass_kg": {
+    "1": 5.1,
+    "2": 5.25,
+    "3": 4.85,
+    "4": 7.5
+  },
+  "mounted_during_test": [
+    {
+      "item": "wireless data logger",
+      "floor": 3,
+      "mass_kg": 1.1
+    }
+  ],
+  "excitation": {
+    "floor": 1,
+    "signal": "broadband random force, not recorded"
+  },
+  "camera": {
+    "row_period_s": 1.86e-05
+  }
+}

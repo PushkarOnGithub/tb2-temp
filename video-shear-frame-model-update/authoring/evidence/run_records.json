@@ -1,0 +1,387 @@
+[
+ {
+  "variant": "P1-oracle",
+  "kind": "positive",
+  "description": "solution/solve.py: SSI-cov, shutter-corrected realness picks the branch, as-tested M, shapes then frequency refinement",
+  "artifact": {
+   "k": [
+    4931.632346354621,
+    18917.351668041236,
+    5055.821288036918,
+    5114.482466787693
+   ]
+  },
+  "identified_f_hz": null,
+  "grader_exit": 0,
+  "reward": 1,
+  "expected_reward": 1,
+  "max_rel_freq_error": 0.0008232237124892183,
+  "graded_values_out_of_tolerance": 0,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "P2-fdd",
+  "kind": "positive",
+  "description": "different identification: frequency-domain decomposition of the Welch CSD matrix; branch by shutter-corrected realness of the singular vector",
+  "artifact": {
+   "k": [
+    4936.74428339478,
+    18986.23168394496,
+    4902.2516813730035,
+    5203.004734658171
+   ]
+  },
+  "identified_f_hz": [
+   1.7495,
+   4.6715,
+   7.6369,
+   14.5418
+  ],
+  "grader_exit": 0,
+  "reward": 1,
+  "expected_reward": 1,
+  "max_rel_freq_error": 0.0054174315102747395,
+  "graded_values_out_of_tolerance": 0,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "P3-shapes-only",
+  "kind": "positive",
+  "description": "same modes, k projected from M Phi W^2 Phi^T M without frequency refinement",
+  "artifact": {
+   "k": [
+    5134.030664119384,
+    18882.44317287694,
+    5001.515415434416,
+    5122.784298281073
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   14.5343
+  ],
+  "grader_exit": 0,
+  "reward": 1,
+  "expected_reward": 1,
+  "max_rel_freq_error": 0.012553650090566526,
+  "graded_values_out_of_tolerance": 0,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N1-alias-blind-freq-update",
+  "kind": "crux",
+  "description": "default: principal-branch poles, k updated to the four identified frequencies (matches them exactly)",
+  "artifact": {
+   "k": [
+    6983.337613216966,
+    6984.255988005729,
+    6665.486742364137,
+    3847.8652734573757
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   10.4662
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 0.31444359397475263,
+  "graded_values_out_of_tolerance": 71,
+  "grader_line": "FAIL accuracy: 71 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N2-alias-blind-shapes",
+  "kind": "crux",
+  "description": "principal-branch poles, shutter corrected with those poles, k from mode shapes",
+  "artifact": {
+   "k": [
+    4809.164768225556,
+    9122.917874628367,
+    3523.3585634851042,
+    5362.894529103579
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   10.4662
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 0.28247071791037226,
+  "graded_values_out_of_tolerance": 164,
+  "grader_line": "FAIL accuracy: 164 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N3-alias-blind-shapes+freq",
+  "kind": "crux",
+  "description": "principal-branch poles, k from shapes then frequency refinement",
+  "artifact": {
+   "k": [
+    6983.3376132169415,
+    6984.2559880057415,
+    6665.486742364137,
+    3847.8652734573825
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   10.4662
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 0.3144435939747524,
+  "graded_values_out_of_tolerance": 71,
+  "grader_line": "FAIL accuracy: 71 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N4-wrong-fold",
+  "kind": "crux",
+  "description": "aliasing suspected but the highest mode assumed folded without reflection (fs + f_apparent)",
+  "artifact": {
+   "k": [
+    6004.6413411296235,
+    126188.69154279021,
+    2947.1914421537313,
+    6432.285532240272
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   35.466
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 1.486787543444151,
+  "graded_values_out_of_tolerance": 58,
+  "grader_line": "FAIL accuracy: 58 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N5-welch-peaks",
+  "kind": "crux",
+  "description": "Welch peak picking, frequency updating",
+  "artifact": {
+   "k": [
+    6938.2237212118725,
+    6991.05922505611,
+    6626.095549512765,
+    3849.94189757014
+   ]
+  },
+  "identified_f_hz": [
+   1.7517,
+   4.6692,
+   7.6355,
+   10.4553
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 0.31486193889465663,
+  "graded_values_out_of_tolerance": 70,
+  "grader_line": "FAIL accuracy: 70 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N6-design-masses",
+  "kind": "trap",
+  "description": "true branch, design floor masses (logger on floor 3 omitted)",
+  "artifact": {
+   "k": [
+    6404.1532342050195,
+    19082.166230913183,
+    3045.913705209808,
+    5282.776366205613
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   14.5343
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 0.09658049435187666,
+  "graded_values_out_of_tolerance": 65,
+  "grader_line": "FAIL accuracy: 65 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N7-shutter-ignored",
+  "kind": "time-cost",
+  "description": "true branch, rolling-shutter delays ignored in the shapes, k from mode shapes (category b: precision cost, still inside tolerance on this instance)",
+  "artifact": {
+   "k": [
+    4772.647532821007,
+    19086.12056554323,
+    4757.830271884416,
+    5149.6489771682545
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   14.5343
+  ],
+  "grader_exit": 0,
+  "reward": 1,
+  "expected_reward": 1,
+  "max_rel_freq_error": 0.01779142443838433,
+  "graded_values_out_of_tolerance": 0,
+  "grader_line": "VSF-GRADER: PASS all 164 natural frequencies within tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N8-shutter-spline",
+  "kind": "trap",
+  "description": "rolling shutter handled by spline-resampling each channel to the frame times, true branch",
+  "artifact": {
+   "k": [
+    -1629.2483542699965,
+    20105.07889899897,
+    5923.246621297244,
+    4947.060205400518
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6734,
+   7.65,
+   14.5346
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": NaN,
+  "graded_values_out_of_tolerance": 164,
+  "grader_line": "FAIL contract: k[0] must lie in [1, 1e9] N/m",
+  "as_expected": true
+ },
+ {
+  "variant": "N9-pixel-units",
+  "kind": "trap",
+  "description": "true branch, positions left in pixels or one common mm/px (per-target scales ignored), k from mode shapes",
+  "artifact": {
+   "k": [
+    4111.808610431666,
+    19085.147031574896,
+    5128.262243864962,
+    5289.874465546278
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   14.5343
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 0.06028512695600108,
+  "graded_values_out_of_tolerance": 42,
+  "grader_line": "FAIL accuracy: 42 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N10-label-order",
+  "kind": "trap",
+  "description": "tracker labels T1..T4 taken as floors 1..4",
+  "artifact": {
+   "k": [
+    36745.20714094545,
+    5036.472237128932,
+    4472.366636723519,
+    2914.606269879316
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   14.5343
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 0.18196621365303867,
+  "graded_values_out_of_tolerance": 83,
+  "grader_line": "FAIL accuracy: 83 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N11-freq-only-uniform-start",
+  "kind": "identifiability",
+  "description": "true branch, k least-squares-fitted to the four frequencies from a uniform 15 kN/m start: local minimum missing the frequencies by about 1-2 %",
+  "artifact": {
+   "k": [
+    6335.590954187791,
+    4881.892021825412,
+    20798.05558537568,
+    3750.1306732703333
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   14.5343
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 0.19236048241154968,
+  "graded_values_out_of_tolerance": 87,
+  "grader_line": "FAIL accuracy: 87 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
+  "variant": "N12-isospectral-twin",
+  "kind": "identifiability",
+  "description": "true branch, frequency-only updating that lands on the exact isospectral twin (all four tested-frame frequencies matched, shapes ignored)",
+  "artifact": {
+   "k": [
+    36745.20714094532,
+    5036.472237129012,
+    4472.366636723503,
+    2914.606269879293
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   14.5343
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 0.18196621365303778,
+  "graded_values_out_of_tolerance": 83,
+  "grader_line": "FAIL accuracy: 83 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ }
+]

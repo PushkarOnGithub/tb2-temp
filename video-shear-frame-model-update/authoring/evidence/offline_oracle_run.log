@@ -1,0 +1,42 @@
+== offline oracle run (2026-10-06T12:06:47Z)
+interfaces present: lo:
+NETWORK: unreachable -> gaierror ([Errno -3] Temporary failure in name resolution)
+mode 1: apparent 1.7544 Hz -> 1.7544 Hz, shutter-corrected imag/real 7.24e-04, next branch x851 worse
+mode 2: apparent 4.6734 Hz -> 4.6734 Hz, shutter-corrected imag/real 9.53e-04, next branch x602 worse
+mode 3: apparent 7.6499 Hz -> 7.6499 Hz, shutter-corrected imag/real 3.36e-03, next branch x139 worse
+mode 4: apparent 10.4659 Hz -> 14.5341 Hz, shutter-corrected imag/real 2.23e-03, next branch x73 worse
+shear-pattern residual of M Phi W^2 Phi^T M: 3.04e-03; projected k: [ 5134.  18882.4  5001.5  5122.8]
+refined k: [ 4931.6 18917.4  5055.8  5114.5]  MAC vs measured shapes: [1. 1. 1. 1.]
+wrote /app/output/model.json
+oracle exit status: 0
+oracle wall time: 0.15 s
+-rw-r--r-- 1 root root 109 Oct  6 12:06 /app/output/model.json
+{
+  "k": [
+    4931.632346354597,
+    18917.351668041247,
+    5055.821288036904,
+    5114.482466787718
+  ]
+}
+== verifier (separate image, --network none)
+VSF-GRADER: PASS all 164 natural frequencies within tolerance
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.2, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 5 items
+
+tests/test_outputs.py .....                                              [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_outputs.py::test_artifact_is_bounded_regular_file
+PASSED tests/test_outputs.py::test_model_json_matches_contract
+PASSED tests/test_outputs.py::test_tested_frame_natural_frequencies
+PASSED tests/test_outputs.py::test_heldout_mass_only_variants
+PASSED tests/test_outputs.py::test_heldout_stiffness_variants
+============================== 5 passed in 0.81s ===============================
+reward: 1
+test.sh exit status: 0
+reward.txt: 1

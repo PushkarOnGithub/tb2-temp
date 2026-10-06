@@ -1,0 +1,40 @@
+== no-op run (no artifact written)
+FAIL contract: model.json not found at /app/output/model.json
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.2, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 5 items
+
+tests/test_outputs.py FFsss                                              [100%]
+
+=================================== FAILURES ===================================
+____________________ test_artifact_is_bounded_regular_file _____________________
+
+    def test_artifact_is_bounded_regular_file():
+        """/app/output/model.json exists and is a regular file (not a symlink, FIFO or device) of at most 64 KiB."""
+>       st = os.lstat(answer_format.ARTIFACT)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/output/model.json'
+
+tests/test_outputs.py:61: FileNotFoundError
+_______________________ test_model_json_matches_contract _______________________
+
+submission = ContractError('model.json not found at /app/output/model.json')
+
+    def test_model_json_matches_contract(submission):
+        """The file is a JSON object whose only key is k: a list of four numbers, each in [1, 1e9] N/m."""
+>       assert not isinstance(submission, Exception), str(submission)
+E       AssertionError: model.json not found at /app/output/model.json
+E       assert not True
+E        +  where True = isinstance(ContractError('model.json not found at /app/output/model.json'), Exception)
+
+tests/test_outputs.py:68: AssertionError
+=========================== short test summary info ============================
+SKIPPED [3] tests/test_outputs.py:44: output contract not met: model.json not found at /app/output/model.json
+FAILED tests/test_outputs.py::test_artifact_is_bounded_regular_file - FileNot...
+FAILED tests/test_outputs.py::test_model_json_matches_contract - AssertionErr...
+========================= 2 failed, 3 skipped in 0.70s =========================
+reward: 0
+test.sh exit status: 0
+reward.txt: 0
