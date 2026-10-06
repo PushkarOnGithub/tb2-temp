@@ -1,0 +1,5 @@
+mutation                                                             fit_rms         k      rho_c  graded!
+stated assumptions                                                    0.0155   0.58598 1.6381e+06     0/36
+heater areal heat capacity 400 J/(m^2 K) (stated: negligible)         0.0713   0.59070 1.5892e+06    34/36
+specimen-side contact resistance 4e-4 m^2 K/W (stated: negligible)    0.0950   0.59150 1.5706e+06    34/36
+outer faces isothermal (stated: insulated)                            0.0155   0.58598 1.6381e+06     0/36
