@@ -219,6 +219,25 @@ def identify(t, disp, delay, branch="realness", shutter="modal", preprocess="ssi
         chosen = [(np.log(lam[r]) / dt + (2j * np.pi / dt if r == 3 else 0), psi[:, r]) for r in range(4)]
     elif branch == "realness":
         chosen = [min(c, key=lambda x: realness(x[1] * np.exp(-x[0] * delay))[1]) for c in cand]
+    elif branch == "naive-positive":
+        # fold rule applied, but every candidate is a positive frequency f = n*fs +/- fa and the
+        # identified (positive-frequency) shape is referred to a common instant with exp(-2j*pi*f*delta):
+        # the conjugate image of a mode folded from the upper half-band is never considered.
+        fs = 1.0 / dt
+        chosen = []
+        for r in range(4):
+            fa = abs(np.angle(lam[r])) / (2 * np.pi * dt)
+            best = None
+            for n in range(0, 4):
+                for sgn in (1, -1):
+                    f = n * fs + sgn * fa
+                    if f <= 0:
+                        continue
+                    ratio = realness(psi[:, r] * np.exp(-2j * np.pi * f * delay))[1]
+                    if best is None or ratio < best[0]:
+                        sigma = -np.log(abs(lam[r])) / dt
+                        best = (ratio, complex(-sigma, 2 * np.pi * f), psi[:, r])
+            chosen.append((best[1], best[2]))
     elif branch == "oracle":
         ft = true_frequencies_hz()
         chosen = []

@@ -75,6 +75,8 @@ VARIANTS = [
      lambda: pipeline(branch="fold", kmethod="shapes+freq")),
     ("N5-welch-peaks", 0, "crux", "Welch peak picking, frequency updating",
      fft_default),
+    ("N13-fold-rule-positive-frequencies", 0, "crux", "fold rule applied, but each identified shape is referred to a common instant with a positive candidate frequency (no conjugate image): the most nearly real candidate for mode 4 is 85.47 Hz",
+     lambda: pipeline(branch="naive-positive", kmethod="shapes+freq")),
     ("N6-design-masses", 0, "trap", "true branch, design floor masses (logger on floor 3 omitted)",
      lambda: pipeline(masses="design")),
     ("N7-shutter-ignored", 1, "time-cost", "true branch, rolling-shutter delays ignored in the shapes, k from mode shapes (category b: precision cost, still inside tolerance on this instance)",

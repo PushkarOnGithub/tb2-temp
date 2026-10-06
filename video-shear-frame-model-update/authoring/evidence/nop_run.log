@@ -34,7 +34,7 @@ tests/test_outputs.py:68: AssertionError
 SKIPPED [3] tests/test_outputs.py:44: output contract not met: model.json not found at /app/output/model.json
 FAILED tests/test_outputs.py::test_artifact_is_bounded_regular_file - FileNot...
 FAILED tests/test_outputs.py::test_model_json_matches_contract - AssertionErr...
-========================= 2 failed, 3 skipped in 0.70s =========================
+========================= 2 failed, 3 skipped in 0.81s =========================
 reward: 0
 test.sh exit status: 0
 reward.txt: 0

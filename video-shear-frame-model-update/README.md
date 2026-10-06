@@ -15,12 +15,25 @@ The agent writes `/app/output/model.json` = `{"k": [k1, k2, k3, k4]}` (N/m).
 
 ## Task statement
 
-`instruction.md` is the exact text given to the model (about 400 words, closing line
+`instruction.md` is the exact text given to the model (about 450 words, closing line
 as required by the pipeline). It discloses the model family, the
 rolling-shutter timing convention, the as-tested mass rule, the output
 contract, the held-out family, count and split (19 mass-only and 21
 mass-plus-stiffness variants), the tolerance and the binary reward rule. It
-does not say anything about sampling theory or aliasing.
+also pins the two rules that decide the answer, phrased as properties of the
+specimen and the camera:
+
+* "Damping is classical, ... so every mode shape is real: referred to a common
+  instant, the floor motions of a mode are in phase or in antiphase. Natural
+  frequencies may exceed half the frame rate; the camera has no anti-aliasing
+  filter, so such a mode appears in the video at its folded frequency." This
+  fixes the continuous-time branch of every identified mode.
+* "Several stiffness vectors share the frame's four natural frequencies; the
+  specimen's k is the one whose mode shapes also match the measured ones." This
+  fixes the stiffness branch.
+
+It does not say which mode is folded, nor how the shape of a folded mode relates
+to the frequency at which the video shows it.
 
 ## Environment and inputs
 
@@ -115,35 +128,40 @@ Expert time once the crux is seen: well under an hour (estimate 1.5 h in
 
 ## Difficulty
 
-**Crux 1: the highest mode is not where the spectrum shows it (sampled-data
-identification).** The default is the textbook output-only pipeline (SSI,
-NExT-ERA, FDD or Welch peaks), which reports four clean modes at 1.75, 4.67,
-7.65 and 10.47 Hz, all comfortably "below Nyquist". Updating four storey
-stiffnesses to those four frequencies succeeds *exactly* (residual 1e-31)
-and returns a perfectly plausible frame, k = 6983, 6984, 6665, 3848 N/m.
-That model fails 71 of the 164 graded frequencies, with errors up to 31 %
-(variants N1, N3, N5). Nothing in the agent's natural checks flags it: the
-modal model reproduces the sampled data, the updated frame reproduces the
-identified frequencies, and the apparent modes come out in the expected order
-(the fourth shape is almost zero at the roof, so its sign pattern is not
-diagnostic). The instruction never mentions aliasing;
-recognising that a 25 fps camera with no anti-aliasing filter cannot tell
-10.47 Hz from 14.53 Hz, and deriving which branch the evidence supports, is
-the task.
+**Crux 1: which mode is folded (a stated rule the data never flag).** The
+instruction says modes may lie above half the frame rate and appear folded, but
+nothing in the data points at one. The textbook output-only pipeline (SSI,
+NExT-ERA, FDD or Welch peaks) reports four clean modes at 1.75, 4.67, 7.65 and
+10.47 Hz, all comfortably below 12.5 Hz, with ordinary damping ratios and the
+apparent modes in the expected order (the fourth shape is almost zero at the
+roof, so its sign pattern is not diagnostic). Updating four storey stiffnesses
+to those four frequencies succeeds *exactly* (residual 4e-31) and returns a
+plausible frame, k = 6983, 6984, 6665, 3848 N/m, which fails 71 of the 164
+graded frequencies with errors up to 31 % (N1, N3, N5). An agent that applies
+the folding statement only where the data look suspicious applies it nowhere.
 
-**Crux 2: the evidence that resolves it is in the rolling-shutter timing.**
-The per-row capture delay is stated plainly in the instruction. It does not
-look like evidence about the sampling problem. Its role is to put a
-frequency-dependent phase `omega_true * delta_j` on each mode shape, which is
-real only for the true continuous frequency. Mishandling it is silent too.
-Resampling every channel onto the frame time with a spline (the usual "fix")
-is wrong for an aliased component, because the interpolant reconstructs the
-10.47 Hz alias (N8 produces a negative stiffness). Correcting the shapes with
-the apparent pole leaves mode 4 visibly complex (imag/real 0.38 against 0.002
-for the true branch). A physical spectral fit that
-models the folding but ignores the shutter delays converges to a 27 % wrong
-model (independent_solver.log). One that models the shutter but not the
-folding converges to a 25 % wrong model.
+**Crux 2: the folded mode is seen through its negative-frequency component.**
+The stated real-shape property decides the fold only if it is applied with the
+right sign. A mode at 14.53 Hz has components at +14.53 and -14.53 Hz; at 25 fps
+it is the -14.53 Hz component that lands at +10.47 Hz, so the shape identified
+at +10.47 Hz carries the shutter phase of -14.53 Hz. Referring that shape to a
+common instant with the obvious candidate +14.53 Hz makes it *less* real
+(imag/real 0.45) than leaving the mode at 10.47 Hz (0.38), and the most nearly
+real positive candidate is 85.47 Hz (0.16). The natural test of the natural
+hypothesis therefore rejects the truth: the agent keeps 10.47 Hz (31 %) or takes
+85.47 Hz (k_1 = 1.5 MN/m, 610 %; N13). Only the signed frequency -14.53 Hz,
+equivalently the conjugate shape referred at +14.53 Hz, gives a real shape
+(imag/real 0.002, the next branch 73 times worse). The decay-rate route (the
+Rayleigh line implied by C = a0*M + a1*K) avoids the sign issue but separates
+the true assignment from the runner-up by only 0.029 vs 0.048 with output-only
+damping estimates.
+
+Mishandling the shutter delays is silent as well. Resampling every channel onto
+the frame time with a spline (the usual "fix") is wrong for a folded component,
+because the interpolant reconstructs the 10.47 Hz image (N8 produces a negative
+stiffness). A physical spectral fit that models the folding but ignores the
+shutter delays converges to a 27 % wrong model, and one that models the shutter
+but not the folding converges to a 25 % wrong model (independent_solver.log).
 
 **Trap A (authoritative source): as-tested masses.** Instruction sentence:
 "Floor j ... is a rigid lumped mass m_j equal to its design mass plus everything
@@ -160,15 +178,17 @@ Trackers number targets in creation order. Here T1..T4 are floors 2, 4, 1, 3. Re
 T1..T4 as floors 1..4 lands, after frequency refinement, on an isospectral frame
 that matches all four tested frequencies and misses held-out ones by 18 % (N10).
 
-**Identifiability trap: isospectral stiffness vectors.** Two positive stiffness
-vectors reproduce the four true frequencies with the as-tested masses: the true
-one and k = 36674, 5045, 4475, 2913 N/m. Frequency-only updating can therefore
-land on the wrong one (N12, 18 %), or, from most uniform starts, on a
-local minimum (N11, 19 %). Only the mode shapes (MAC 1.00 vs 0.60) separate them.
+**Isospectral stiffness vectors (stated rule, procedural).** Two positive
+stiffness vectors reproduce the four true frequencies with the as-tested masses:
+the true one and k = 36674, 5045, 4475, 2913 N/m. The instruction states that
+the specimen's k is the one whose mode shapes also match. Frequency-only
+updating lands on the twin (N12, 18 %) or, from most uniform starts, on a local
+minimum (N11, 19 %); the mode shapes (MAC 1.00 vs 0.60) separate them.
 
 **Documented mechanics with an invariance band (category b, disclosed):**
 per-target image scales (mm per pixel) matter for estimators that build
-stiffness from mode shapes (N9, 6.0 %), but a frequency-refined estimator is
+stiffness from mode shapes (N9, 6.0 %; the stated shape-match rule makes such
+estimators the natural choice), but a frequency-refined estimator is
 insensitive to per-channel real scaling (mutation run). Ignoring the shutter
 delays when forming shapes (after the branch is known) costs precision but
 stays inside tolerance on this instance (N7, 1.8 %; 1.9-4.3 % across the 10
@@ -180,38 +200,44 @@ not recorded, so no deterministic time-domain simulation can be fitted to the
 tracks and used as a self-check; an earlier impact-test version of this task
 was abandoned because a direct time-domain fit from a uniform start found the
 truth without the insight. The only searches that can test candidates against
-the evidence (branch enumeration scored by shutter realness, shear pattern or
-Rayleigh line; or a spectral fit with explicit folding and shutter phases) are
-the insight itself.
+the evidence (branch enumeration scored by shutter realness with the correct
+sign, shear pattern or Rayleigh line; or a spectral fit with explicit folding
+and shutter phases) are the insight itself.
 
 **Why the agent has no self-check.** Every natural check passes for the default:
 identified modes reproduce the sampled covariance, the updated frame reproduces
 the identified frequencies exactly, apparent frequencies sit below Nyquist,
-mode ordering is as expected. There is no file, tool or oracle that evaluates a
-candidate model.
+mode ordering is as expected, and the obvious realness test of the obvious fold
+(+14.53 Hz) comes out worse than no fold at all. There is no file, tool or
+oracle that evaluates a candidate model.
 
 ## Expected failure modes of frontier models and why each is hard to detect
 
 | # | likely behaviour | why it is silent |
 |---|---|---|
-| 1 | Takes SSI/FDD/peak frequencies at face value; updates k to them (N1/N3/N5). | Exact frequency match; every value below Nyquist; plausible near-uniform frame. "Below Nyquist" is a common but fallacious sanity check: aliased frequencies are always below Nyquist. |
-| 2 | Realises aliasing is possible but assumes the non-reflected fold fs + f (N4) or picks a branch by "physical plausibility" of frequency ratios. | Both readings fit the sampled data; only shutter phases, the shear-frame pattern or the Rayleigh line decide, and none is consulted. |
+| 1 | Reads the folding sentence but finds no mode that looks folded, takes SSI/FDD/peak frequencies at face value and updates k to them (N1/N3/N5). | Exact frequency match; every value below Nyquist; plausible near-uniform frame. "Below Nyquist" is a common but fallacious sanity check: folded frequencies are always below Nyquist. |
+| 2 | Tests the fold with the stated real-shape property but refers the identified shape at a positive candidate frequency (N13), or assumes the non-reflected fold fs + f (N4). | The true fold looks *worse* than no fold (0.45 vs 0.38); the least-complex candidate is 85.47 Hz. Each candidate yields a well-formed frame. |
 | 3 | Treats the rolling shutter as a preprocessing nuisance: resamples channels by interpolation (N8), or ignores it (N7), or corrects shapes with the apparent pole. | Interpolation assumes band-limited signals, which is exactly what fails; the output still looks like four modes. |
 | 4 | Uses design masses (N6). | Masses never enter an output-only fit; all diagnostics are unchanged. |
 | 5 | Assumes T1..T4 = floors 1..4 (N10). | Frequencies are unaffected; refinement lands on an isospectral frame that matches the tested frame exactly. |
-| 6 | Frequency-only model updating from a generic start (N11/N12). | Four equations, four unknowns, an exact or near-exact match; non-uniqueness is invisible without the shapes. |
+| 6 | Frequency-only model updating from a generic start (N11/N12). | Four equations, four unknowns, an exact or near-exact match; only the stated shape-match rule rejects it, and nothing in the fit prompts the agent to check it. |
 | 7 | Leaves pixels as units and builds K from shapes (N9). | A common scale cancels in mass normalisation, so "units don't matter" sounds right; per-target scales do not cancel. |
 | 8 | Physical spectral fit without folding (25 %) or without shutter phases (27 %). | The optimiser converges and the residual looks like a normal model-error residual. |
 
 ## Difficulty calibration
 
 Each independent crux has a fast, confident, well-formed wrong default. Rough
-per-trial estimates for a strong agent: realises and correctly resolves the
-aliasing 0.3-0.45; respects the as-tested mass rule 0.85; reads the label map
-0.95; avoids the isospectral/local-minimum trap given a shape-aware
-estimator 0.9; completes output-only identification correctly inside 600 s 0.9.
-Product: about 0.2-0.3 per trial, which makes at least 3 failures in 5 trials
-likely (about 0.85 at p = 0.25). Most failures should be committed-wrong
+per-trial estimates for a strong agent now that both deciding rules are stated:
+applies the folding rule to every mode, including ones that look ordinary, 0.8;
+gets the folded mode's sign right or resolves it by the Rayleigh line 0.5;
+respects the as-tested mass rule 0.85; reads the label map 0.95; keeps
+per-target scales in a shape-based estimator 0.9; completes output-only
+identification correctly inside 600 s 0.9. Product: about 0.25-0.3 per trial,
+which makes at least 3 failures in 5 trials likely (about 0.8-0.9). Stating the
+rules (required by the contested-conventions review) moved the difficulty from
+"does the agent think of folding" to "does it apply the stated property
+correctly to a folded mode", which is the sampled-data subtlety the task is
+about. Most failures should be committed-wrong
 rather than in-progress: the default pipeline finishes in a few minutes and
 every check it runs passes. The task separates models on one decision, whether
 they treat the identified frequencies as the frame's frequencies. Pipeline
@@ -219,6 +245,8 @@ mechanics are not what separates them.
 
 ## Fairness and identifiability (authoring/evidence)
 
+* Both deciding rules are pinned in `instruction.md` (quoted under "Task
+  statement"); the evidence below shows that each pins a unique answer.
 * `identifiability.log`: per-mode branch enumeration (n in -3..3, with and without
   conjugation): the true branch wins by x73 to x851 on shutter realness; the
   joint enumeration of 500 branch combinations gives the same winner for the

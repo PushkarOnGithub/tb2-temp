@@ -57,6 +57,7 @@ The shipped Dockerfiles are unchanged.
 | N3 principal-branch poles, shapes + frequency refinement | crux | 31.4 % | 71 |
 | N4 aliasing suspected, wrong (non-reflected) fold | crux | 148.7 % | 58 |
 | N5 Welch peak picking, frequency updating | crux | 31.5 % | 70 |
+| N13 fold rule applied, shapes referred at positive candidate frequencies (picks 85.47 Hz) | crux | 610 % | 98 |
 | N6 design masses (logger omitted) | trap (a) | 9.7 % | 65 |
 | N8 shutter handled by spline resampling | trap (a), loud | negative stiffness | 164 |
 | N9 pixels / common scale, stiffness from shapes | trap (a) for shape-based estimators | 6.0 % | 42 |
@@ -74,6 +75,8 @@ are claimed.
 
 | convention | resolution |
 |---|---|
+| continuous-time branch of each identified mode (which fold) | pinned in instruction.md: "every mode shape is real: referred to a common instant, the floor motions of a mode are in phase or in antiphase. Natural frequencies may exceed half the frame rate; the camera has no anti-aliasing filter, so such a mode appears in the video at its folded frequency." Unique: identifiability.log section 1 (true branch x73 to x851 better on shutter realness; shear-pattern and Rayleigh-line criteria agree). The principal-branch reading (k = 6983, 6984, 6665, 3848) violates the stated real-shape property (mode-4 imag/real 0.38). |
+| stiffness vector when several share the four frequencies | pinned in instruction.md: "Several stiffness vectors share the frame's four natural frequencies; the specimen's k is the one whose mode shapes also match the measured ones." Unique: identifiability.log section 2 (two positive solutions; MAC 1.00 vs 0.60). |
 | which time a frame timestamp refers to | instruction: row r captured at t_n + r*tau. Any reading that shifts all targets by the same time (timestamp at mid-frame, rows counted from 1) selects the same branch and the same k (identifiability.log, section 3): inert. |
 | readout direction | pinned by the formula; the reversed reading leaves no branch with real shapes (ratio 0.31) and contradicts the instruction. |
 | as-tested mass | instruction: design mass plus everything mounted during the test. |

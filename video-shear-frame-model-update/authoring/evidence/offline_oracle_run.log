@@ -1,4 +1,4 @@
-== offline oracle run (2026-10-06T12:06:47Z)
+== offline oracle run (2026-10-06T12:34:01Z)
 interfaces present: lo:
 NETWORK: unreachable -> gaierror ([Errno -3] Temporary failure in name resolution)
 mode 1: apparent 1.7544 Hz -> 1.7544 Hz, shutter-corrected imag/real 7.24e-04, next branch x851 worse
@@ -9,8 +9,8 @@ shear-pattern residual of M Phi W^2 Phi^T M: 3.04e-03; projected k: [ 5134.  188
 refined k: [ 4931.6 18917.4  5055.8  5114.5]  MAC vs measured shapes: [1. 1. 1. 1.]
 wrote /app/output/model.json
 oracle exit status: 0
-oracle wall time: 0.15 s
--rw-r--r-- 1 root root 109 Oct  6 12:06 /app/output/model.json
+oracle wall time: 1.16 s
+-rw-r--r-- 1 root root 109 Oct  6 12:34 /app/output/model.json
 {
   "k": [
     4931.632346354597,
@@ -36,7 +36,7 @@ PASSED tests/test_outputs.py::test_model_json_matches_contract
 PASSED tests/test_outputs.py::test_tested_frame_natural_frequencies
 PASSED tests/test_outputs.py::test_heldout_mass_only_variants
 PASSED tests/test_outputs.py::test_heldout_stiffness_variants
-============================== 5 passed in 0.81s ===============================
+============================== 5 passed in 1.04s ===============================
 reward: 1
 test.sh exit status: 0
 reward.txt: 1

@@ -203,6 +203,32 @@
   "as_expected": true
  },
  {
+  "variant": "N13-fold-rule-positive-frequencies",
+  "kind": "crux",
+  "description": "fold rule applied, but each identified shape is referred to a common instant with a positive candidate frequency (no conjugate image): the most nearly real candidate for mode 4 is 85.47 Hz",
+  "artifact": {
+   "k": [
+    1466110.5897421816,
+    4548.814446634166,
+    4375.7738241556135,
+    2858.4012571469075
+   ]
+  },
+  "identified_f_hz": [
+   1.7545,
+   4.6735,
+   7.65,
+   85.466
+  ],
+  "grader_exit": 1,
+  "reward": 0,
+  "expected_reward": 0,
+  "max_rel_freq_error": 6.098935365443106,
+  "graded_values_out_of_tolerance": 98,
+  "grader_line": "FAIL accuracy: 98 of 164 natural frequencies out of tolerance",
+  "as_expected": true
+ },
+ {
   "variant": "N6-design-masses",
   "kind": "trap",
   "description": "true branch, design floor masses (logger on floor 3 omitted)",
