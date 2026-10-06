@@ -23,16 +23,17 @@ mass-plus-stiffness variants), the tolerance and the binary reward rule. It
 also pins the rules that decide the answer, phrased as properties of the
 specimen and the camera:
 
-* "Damping is classical, ... so every mode shape is real: referred to a common
-  instant, the floor motions of a mode are in phase or in antiphase." and "The
-  camera has no anti-aliasing filter, and natural frequencies may exceed half
-  the frame rate F. A mode of frequency f appears in the video at f - qF, for the
-  integer q that puts it between -F/2 and F/2. When f - qF is negative, the video
-  shows the mode at qF - f through its negative-frequency component, so the
-  shape identified there carries the rolling-shutter phase of frequency -f: it
-  is the complex conjugate of the shape the mode would show at +f." Together
-  these fix the continuous-time branch of every identified mode, including the
-  sign convention for a mode folded from the upper half of a band.
+* "Damping is classical, C = a0*M + a1*K ..." Classical damping makes every
+  mode shape real (floor motions in phase or in antiphase once referred to a
+  common instant); this is standard structural dynamics and is left implicit.
+* "The camera has no anti-aliasing filter, and natural frequencies may exceed
+  half the frame rate; a folded mode's identified shape carries the
+  rolling-shutter phase of its signed continuous-time frequency, which is
+  negative when the fold is reflected." Together with the shutter timing
+  formula and classical damping, this fixes the continuous-time branch of every
+  identified mode, including the sign convention for a mode folded from the
+  upper half of a band (the shape identified at the apparent frequency carries
+  the shutter phase of -f, i.e. it is the conjugate of the shape at +f).
 * "Several stiffness vectors share the frame's four natural frequencies; the
   specimen's k is the one whose mode shapes also match the measured ones." This
   fixes the stiffness branch.
@@ -146,8 +147,8 @@ graded frequencies with errors up to 31 % (N1, N3, N5). An agent that applies
 the folding statement only where the data look suspicious applies it nowhere.
 
 **Crux 2: applying the stated sign convention to the folded mode.** The
-instruction states that a mode folded from the upper half of a band is seen
-through its negative-frequency component; the agent still has to recognise that
+instruction states that a reflected fold carries the shutter phase of a
+negative continuous-time frequency; the agent still has to recognise that
 mode 4 is such a mode and carry the convention through its own identification
 code (pole, shape and shutter phase must use the same signed frequency). A mode at 14.53 Hz has components at +14.53 and -14.53 Hz; at 25 fps
 it is the -14.53 Hz component that lands at +10.47 Hz, so the shape identified
